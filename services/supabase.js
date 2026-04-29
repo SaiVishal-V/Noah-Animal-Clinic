@@ -33,6 +33,7 @@ export async function createAppointment(data) {
   const payload = {
     owner_name: data.owner_name,
     phone: data.phone,
+    owner_email: data.owner_email || null,
     pet_name: data.pet_name || null,
     pet_type: data.pet_type,
     service: data.service,

@@ -9,7 +9,13 @@ import {
   notifyAppointmentCancelled,
   notifyAppointmentRescheduled,
 } from "@/services/whatsapp";
-import { emailStatusUpdate } from "@/services/email";
+import {
+  emailStatusUpdate,
+  emailPatientConfirmed,
+  emailPatientCancelled,
+  emailPatientRescheduled,
+} from "@/services/email";
+import { addCalendarEvent, addRescheduledCalendarEvent } from "@/services/calendar";
 import { verifyAdminToken, getTokenFromRequest } from "@/lib/auth";
 
 const VALID_STATUSES = ["confirmed", "cancelled", "rescheduled"];
@@ -79,10 +85,33 @@ export default async function handler(req, res) {
         console.error(`[WhatsApp] ${status} notification failed:`, err.message)
       );
 
-      // 4. Email staff notification (non-blocking)
+      // 4. Email clinic staff notification (non-blocking)
       emailStatusUpdate(fullRecord, status).catch((err) =>
         console.error("[Email] status update notification failed:", err.message)
       );
+
+      // 5. Email patient confirmation (non-blocking)
+      if (status === "confirmed") {
+        emailPatientConfirmed(fullRecord).catch((err) =>
+          console.error("[Email] patient confirmation failed:", err.message)
+        );
+        // 6. Add to Google Calendar (non-blocking)
+        addCalendarEvent(fullRecord).catch((err) =>
+          console.error("[Calendar] add event failed:", err.message)
+        );
+      } else if (status === "cancelled") {
+        emailPatientCancelled(fullRecord).catch((err) =>
+          console.error("[Email] patient cancellation failed:", err.message)
+        );
+      } else if (status === "rescheduled") {
+        emailPatientRescheduled(fullRecord).catch((err) =>
+          console.error("[Email] patient reschedule failed:", err.message)
+        );
+        // Add rescheduled slot to Google Calendar (non-blocking)
+        addRescheduledCalendarEvent(fullRecord).catch((err) =>
+          console.error("[Calendar] add rescheduled event failed:", err.message)
+        );
+      }
 
       return res.status(200).json({
         success: true,

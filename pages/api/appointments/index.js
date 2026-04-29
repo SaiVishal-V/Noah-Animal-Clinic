@@ -13,6 +13,7 @@ export default async function handler(req, res) {
     const {
       owner_name,
       phone,
+      owner_email,
       pet_name,
       pet_type,
       service,
@@ -27,6 +28,8 @@ export default async function handler(req, res) {
     if (!phone?.trim()) errors.phone = "Phone is required";
     if (!/^\d{10}$/.test(phone?.replace(/\D/g, "")))
       errors.phone = "Enter a valid 10-digit phone number";
+    if (owner_email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email.trim()))
+      errors.owner_email = "Enter a valid email address";
     if (!pet_type) errors.pet_type = "Pet type is required";
     if (!service) errors.service = "Service is required";
     if (!preferred_date) errors.preferred_date = "Preferred date is required";
@@ -41,6 +44,7 @@ export default async function handler(req, res) {
       const appointment = await createAppointment({
         owner_name: owner_name.trim(),
         phone: phone.trim(),
+        owner_email: owner_email?.trim() || null,
         pet_name: pet_name?.trim() || null,
         pet_type,
         service,
@@ -61,7 +65,7 @@ export default async function handler(req, res) {
 
       return res.status(201).json({
         success: true,
-        message: "Appointment request received! We'll confirm via WhatsApp shortly.",
+        message: "Appointment request received! We'll confirm via WhatsApp" + (appointment.owner_email ? " and email" : "") + " shortly.",
         data: appointment,
       });
     } catch (err) {

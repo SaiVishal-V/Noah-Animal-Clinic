@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS public.appointments (
   -- Patient info
   owner_name      TEXT NOT NULL,
   phone           TEXT NOT NULL,
+  owner_email     TEXT,                  -- Patient email for confirmation emails
   pet_name        TEXT,
   pet_type        TEXT NOT NULL,         -- Dog | Cat | Bird / Parrot | Exotic Pet | Other
   
@@ -93,3 +94,6 @@ ORDER BY created_at DESC;
 
 -- SELECT * FROM public.appointments LIMIT 5;
 -- SELECT status, COUNT(*) FROM public.appointments GROUP BY status;
+
+-- ── Migration: add owner_email column (run if table already exists) ───────────
+-- ALTER TABLE public.appointments ADD COLUMN IF NOT EXISTS owner_email TEXT;
