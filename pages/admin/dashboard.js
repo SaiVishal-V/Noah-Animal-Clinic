@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { getTokenFromRequest, verifyAdminToken } from "@/lib/auth";
 
 const STATUS_COLORS = {
   pending:     { bg: "#fff7ed", text: "#c2410c", border: "#fed7aa" },
@@ -17,14 +18,14 @@ const STATUS_LABELS = {
   rescheduled: "🔄 Rescheduled",
 };
 
-export default function AdminDashboard() {
+export default function AdminDashboard({ adminEmail: initialEmail }) {
   const router = useRouter();
   const [appointments, setAppointments] = useState([]);
   const [filter, setFilter] = useState("all");
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(null); // id of appointment being actioned
   const [toast, setToast] = useState(null);
-  const [adminEmail, setAdminEmail] = useState("");
+  const [adminEmail, setAdminEmail] = useState(initialEmail || "");
 
   // Reschedule modal state
   const [rescheduleModal, setRescheduleModal] = useState(null); // appointment object
@@ -32,16 +33,16 @@ export default function AdminDashboard() {
   const [rescheduleTime, setRescheduleTime] = useState("");
   const [adminNote, setAdminNote] = useState("");
 
-  // Confirm session on mount
+  // Confirm session on mount (lightweight re-validation; redirect if cookie gone)
   useEffect(() => {
     fetch("/api/admin/login")
       .then((r) => r.json())
       .then((data) => {
         if (!data.authenticated) router.replace("/admin");
-        else setAdminEmail(data.email);
+        else if (!adminEmail) setAdminEmail(data.email);
       })
       .catch(() => router.replace("/admin"));
-  }, [router]);
+  }, [router, adminEmail]);
 
   const fetchAppointments = useCallback(async () => {
     setLoading(true);
@@ -275,7 +276,8 @@ export default function AdminDashboard() {
                 filtered.map((apt) => {
                   const sc = STATUS_COLORS[apt.status] || STATUS_COLORS.pending;
                   const isLoading = actionLoading === apt.id;
-                  const isTerminal = apt.status === "confirmed" || apt.status === "cancelled";
+                  // Only truly cancelled appointments are terminal; confirmed can still be cancelled or rescheduled
+                  const isTerminal = apt.status === "cancelled";
                   return (
                     <tr key={apt.id}>
                       <td>
@@ -315,7 +317,7 @@ export default function AdminDashboard() {
                         ) : (
                           <div className="actions">
                             <button
-                              className={`action-btn btn-accept ${isLoading ? "btn-disabled" : ""}`}
+                              className={`action-btn btn-accept ${isLoading || apt.status === "confirmed" ? "btn-disabled" : ""}`}
                               disabled={isLoading || apt.status === "confirmed"}
                               onClick={() => handleAction(apt.id, "confirmed")}
                             >
@@ -409,4 +411,25 @@ export default function AdminDashboard() {
       )}
     </>
   );
+}
+
+// Server-side auth guard: redirect to login if session cookie is missing or invalid
+export async function getServerSideProps(context) {
+  const token = getTokenFromRequest(context.req);
+  const payload = token ? await verifyAdminToken(token) : null;
+
+  if (!payload) {
+    return {
+      redirect: {
+        destination: "/admin",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      adminEmail: payload.email,
+    },
+  };
 }
