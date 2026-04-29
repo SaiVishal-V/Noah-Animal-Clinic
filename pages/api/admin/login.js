@@ -7,11 +7,19 @@ import {
   buildClearCookie,
   getTokenFromRequest,
   verifyAdminToken,
+  isAdminConfigured,
 } from "@/lib/auth";
 
 export default async function handler(req, res) {
   // ─── POST /api/admin/login ── Authenticate admin ─────────────────────────
   if (req.method === "POST") {
+    if (!isAdminConfigured()) {
+      return res.status(500).json({
+        success: false,
+        error: "Server not configured: ADMIN_EMAIL, ADMIN_PASSWORD, and ADMIN_JWT_SECRET must be set in environment variables.",
+      });
+    }
+
     const { email, password } = req.body;
 
     if (!email || !password) {
