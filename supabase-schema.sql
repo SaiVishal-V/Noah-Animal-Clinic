@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS public.appointments (
   
   -- Admin note (reason for rejection, reschedule note, etc.)
   admin_note      TEXT,
+
+  -- Google Calendar event ID (stored after confirmed/rescheduled to allow event updates)
+  calendar_event_id TEXT,
   
   -- Timestamps
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -97,3 +100,4 @@ ORDER BY created_at DESC;
 
 -- ── Migration: add owner_email column (run if table already exists) ───────────
 -- ALTER TABLE public.appointments ADD COLUMN IF NOT EXISTS owner_email TEXT;
+-- ALTER TABLE public.appointments ADD COLUMN IF NOT EXISTS calendar_event_id TEXT;

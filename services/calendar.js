@@ -73,7 +73,7 @@ function parseSlot(date, timeSlot) {
 /**
  * Add a confirmed appointment to the doctor's Google Calendar.
  * @param {Object} appointment - full appointment record from DB
- * @returns {Promise<Object|null>} Google Calendar event resource, or null if not configured
+ * @returns {Promise<string|null>} Google Calendar event ID to store in DB, or null if not configured
  */
 export async function addCalendarEvent(appointment) {
   const calendar = getCalendarClient();
@@ -100,12 +100,12 @@ export async function addCalendarEvent(appointment) {
   const description = [
     `🐾 ${CLINIC_NAME} – Confirmed Appointment`,
     ``,
-    `Owner : ${owner_name}`,
-    `Phone : ${phone}`,
-    owner_email ? `Email : ${owner_email}` : null,
-    `Pet   : ${petLabel}`,
+    `Owner:   ${owner_name}`,
+    `Phone:   ${phone}`,
+    owner_email ? `Email:   ${owner_email}` : null,
+    `Pet:     ${petLabel}`,
     `Service: ${service}`,
-    notes ? `Notes : ${notes}` : null,
+    notes ? `Notes:   ${notes}` : null,
   ]
     .filter(Boolean)
     .join("\n");
@@ -131,22 +131,69 @@ export async function addCalendarEvent(appointment) {
   const response = await calendar.events.insert({
     calendarId: CALENDAR_ID,
     resource: event,
-    sendUpdates: owner_email ? "all" : "none", // Send Google invite to patient if email provided
+    // Use 'none' – patient already receives a dedicated confirmation email via
+    // emailPatientConfirmed(); sending a Google Calendar invite on top would duplicate it.
+    sendUpdates: "none",
   });
 
   console.log(`[Calendar] Event created: ${response.data.htmlLink}`);
-  return response.data;
+  return response.data.id; // Return event ID so caller can persist it
 }
 
 /**
- * Add a rescheduled appointment as a new calendar event.
+ * Update an existing calendar event with a new date/time (for rescheduled appointments).
+ * Falls back to creating a new event if no existing event ID is available.
  * @param {Object} appointment - appointment record (uses reschedule_date / reschedule_time)
+ * @returns {Promise<string|null>} Google Calendar event ID
  */
-export async function addRescheduledCalendarEvent(appointment) {
+export async function updateCalendarEvent(appointment) {
+  const calendar = getCalendarClient();
+  if (!calendar) {
+    console.warn("[Calendar] Google Calendar env vars not configured, skipping.");
+    return null;
+  }
+
+  const existingEventId = appointment.calendar_event_id;
+  const newDate = appointment.reschedule_date;
+  const newTime = appointment.reschedule_time;
+
+  if (existingEventId) {
+    // Update the existing event's time slot rather than creating a duplicate
+    const slot = parseSlot(newDate, newTime);
+    const noteAddendum = appointment.admin_note
+      ? `\n\n📝 Rescheduled note: ${appointment.admin_note}`
+      : "\n\n(Rescheduled by clinic)";
+
+    try {
+      const existing = await calendar.events.get({
+        calendarId: CALENDAR_ID,
+        eventId: existingEventId,
+      });
+
+      await calendar.events.update({
+        calendarId: CALENDAR_ID,
+        eventId: existingEventId,
+        resource: {
+          ...existing.data,
+          start: { dateTime: slot.start, timeZone: slot.timeZone },
+          end:   { dateTime: slot.end,   timeZone: slot.timeZone },
+          description: (existing.data.description || "") + noteAddendum,
+        },
+        sendUpdates: "none",
+      });
+
+      console.log(`[Calendar] Event updated: ${existingEventId}`);
+      return existingEventId;
+    } catch (err) {
+      console.error("[Calendar] Failed to update event, creating new one:", err.message);
+    }
+  }
+
+  // No existing event (or update failed) – create a new event for the rescheduled slot
   const patched = {
     ...appointment,
-    preferred_date: appointment.reschedule_date,
-    preferred_time: appointment.reschedule_time,
+    preferred_date: newDate,
+    preferred_time: newTime,
   };
   return addCalendarEvent(patched);
 }
