@@ -1,2022 +1,3211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noah Animal Clinic | Advanced Veterinary Care in Hyderabad | Dr. S. Ranjith Kumar</title>
-<meta name="description" content="Noah Animal Clinic - Premium veterinary hospital in Moosapet, Hyderabad. Expert care for dogs, cats, birds & exotic pets. Emergency care, diagnostics, surgery, grooming. Call 7672055007.">
-<meta name="keywords" content="pet clinic hyderabad, veterinary hospital hyderabad, dog doctor hyderabad, cat doctor hyderabad, emergency vet hyderabad, pet vaccination hyderabad, Noah Animal Clinic, Dr Ranjith Kumar vet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --teal: #2563eb;
-  --teal-light: #60a5fa;
-  --teal-dark: #1d4ed8;
-  --teal-pale: rgba(250,204,21,0.14);
-  --navy: #1d4ed8;
-  --gold: #facc15;
-  --cream: #FFFFFF;
-  --white: #FFFFFF;
-  --text: #1e3a8a;
-  --muted: #3b82f6;
-  --border: #dbeafe;
-  --shadow: rgba(37,99,235,0.16);
-  --emergency: #2563eb;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); overflow-x: hidden; font-weight: 400; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noah Animal Clinic | Advanced Veterinary Care in Hyderabad | Dr. S. Ranjith Kumar</title>
+  <meta name="description"
+    content="Noah Animal Clinic - Premium veterinary hospital in Moosapet, Hyderabad. Expert care for dogs, cats, birds & exotic pets. Emergency care, diagnostics, surgery, grooming. Call 7672055007.">
+  <meta name="keywords"
+    content="pet clinic hyderabad, veterinary hospital hyderabad, dog doctor hyderabad, cat doctor hyderabad, emergency vet hyderabad, pet vaccination hyderabad, Noah Animal Clinic, Dr Ranjith Kumar vet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #2563eb;
+      --teal-light: #60a5fa;
+      --teal-dark: #1d4ed8;
+      --teal-pale: rgba(250, 204, 21, 0.14);
+      --navy: #1d4ed8;
+      --gold: #facc15;
+      --cream: #FFFFFF;
+      --white: #FFFFFF;
+      --text: #1e3a8a;
+      --muted: #3b82f6;
+      --border: #dbeafe;
+      --shadow: rgba(37, 99, 235, 0.16);
+      --emergency: #2563eb;
+    }
 
-/* Accent elements removed per user request */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* EMERGENCY BAR */
-.emergency-bar {
-  background: var(--emergency);
-  color: #fff;
-  text-align: center;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  z-index: 1000;
-  position: relative;
-}
-.emergency-bar a { color: #fff; text-decoration: none; font-weight: 700; }
-.emergency-bar span { margin: 0 12px; opacity: 0.6; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* STICKY HEADER */
-.header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  z-index: 999;
-  transition: box-shadow 0.3s;
-}
-.header.scrolled { box-shadow: 0 4px 24px var(--shadow); }
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-  gap: 16px;
-}
-.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-icon {
-  width: 46px; height: 46px;
-  background: var(--teal);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 22px;
-}
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  display: block;
-}
-footer .logo-icon { background: var(--gold); color: #2563eb; }
-footer .logo-icon svg { display: block; width: 28px; height: 28px; }
-.logo-text h1 { font-family: 'Inter', sans-serif; font-size: 17px; color: var(--navy); line-height: 1.1; font-weight: 700; }
-.logo-text p { font-size: 11px; color: var(--teal); font-weight: 500; letter-spacing: 0.5px; }
-nav { display: flex; gap: 4px; }
-nav a {
-  padding: 8px 14px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--muted);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s;
-}
-nav a:hover { color: var(--teal); background: var(--teal-pale); }
-.header-ctas { display: flex; gap: 8px; }
-.btn-call {
-  padding: 9px 18px;
-  background: transparent;
-  border: 1.5px solid var(--teal);
-  color: var(--teal);
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex; align-items: center; gap: 6px;
-  transition: all 0.2s;
-}
-.btn-call:hover { background: var(--teal); color: #fff; }
-.btn-book {
-  padding: 9px 18px;
-  background: var(--teal);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-book:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 4px 16px var(--shadow); }
-.hamburger { display: none; font-size: 24px; cursor: pointer; color: var(--navy); background: none; border: none; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+      font-weight: 400;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%);
-  position: relative;
-  overflow: hidden;
-  padding: 80px 24px 60px;
-  min-height: 85vh;
-  display: flex; align-items: center;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  backdrop-filter: blur(8px);
-}
-.hero h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 52px);
-  color: #fff;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-.hero h2 em { font-style: italic; color: #a8eddf; }
-.hero p {
-  font-size: 17px;
-  color: #1a1f35;
-  line-height: 1.7;
-  margin-bottom: 36px;
-}
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-hero-primary {
-  padding: 14px 28px;
-  background: #fff;
-  color: var(--teal-dark);
-  border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s;
-  display: flex; align-items: center; gap: 8px;
-}
-.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-.btn-hero-secondary {
-  padding: 14px 28px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.4);
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-  transition: all 0.25s;
-  display: flex; align-items: center; gap: 8px;
-}
-.btn-hero-secondary:hover { background: rgba(255,255,255,0.25); }
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  backdrop-filter: blur(8px);
-}
-  display: flex; align-items: center; gap: 6px;
-}
-.hero-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.76) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(37,99,235,0.12);
-  border-radius: 24px;
-  padding: 36px;
-  text-align: center;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 18px 48px rgba(29,78,216,0.08);
-  position: relative;
-  overflow: hidden;
-}
-.hero-card::before {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(250,204,21,0.08));
-  pointer-events: none;
-}
-.hero-card > * { position: relative; z-index: 1; }
-.hero-animal-icon {
-  width: 92px;
-  height: 92px;
-  margin: 0 auto 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 80px;
-  text-align: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(250,204,21,0.18));
-  box-shadow: 0 10px 24px rgba(37,99,235,0.08);
-  transform: translateX(-34px);
-}
-.hero-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: #000; margin-bottom: 8px; }
-.hero-card p { font-size: 14px; color: #000; margin-bottom: 24px; }
-.hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.hero-stat {
-  background: rgba(255,255,255,0.72);
-  border-radius: 12px;
-  padding: 14px;
-  border: 1px solid rgba(37,99,235,0.08);
-}
-.hero-stat .num { font-size: 26px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; }
-.hero-stat .lbl { font-size: 11px; color: var(--muted); font-weight: 500; }
+    /* Accent elements removed per user request */
 
-/* TRUST METRICS */
-.trust-bar {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0 24px;
-}
-.trust-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-.trust-item {
-  padding: 28px 24px;
-  text-align: center;
-  border-right: 1px solid var(--border);
-  position: relative;
-  transition: background 0.2s;
-}
-.trust-item:last-child { border-right: none; }
-.trust-item:hover { background: var(--teal-pale); }
-.trust-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  color: var(--teal);
-  font-weight: 700;
-  line-height: 1;
-}
-.trust-label { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+    /* EMERGENCY BAR */
+    .emergency-bar {
+      background: var(--emergency);
+      color: #fff;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      z-index: 1000;
+      position: relative;
+    }
 
-/* SECTIONS */
-.section { padding: 80px 24px; }
-.section-inner { max-width: 1200px; margin: 0 auto; }
-.section-tag {
-  display: inline-block;
-  background: var(--teal-pale);
-  color: var(--teal);
-  padding: 5px 14px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3vw, 38px);
-  color: var(--navy);
-  line-height: 1.2;
-  margin-bottom: 14px;
-}
-.section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.7; }
-.section-header { margin-bottom: 48px; }
-.section-header.center { text-align: center; }
-.section-header.center .section-sub { margin: 0 auto; }
+    .emergency-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
 
-/* ABOUT DOCTOR */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.about-img {
-  background: linear-gradient(135deg, var(--teal-pale), #c8ede9);
-  border-radius: 24px;
-  aspect-ratio: 4/5;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 100px;
-  position: relative;
-  overflow: hidden;
-}
-.about-img img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.about-img::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 40%;
-  background: linear-gradient(to top, rgba(10,124,110,0.15), transparent);
-}
-.about-badge {
-  position: absolute;
-  bottom: 24px; left: 24px; right: 24px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 14px;
-  padding: 16px 20px;
-  z-index: 2;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
-.about-badge h4 { font-size: 16px; font-weight: 700; color: var(--navy); }
-.about-badge p { font-size: 13px; color: var(--teal); font-weight: 500; }
-.about-content h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--navy); margin-bottom: 20px; line-height: 1.25; }
-.about-content p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
-.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
-.about-feature {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 16px;
-  background: var(--teal-pale);
-  border-radius: 12px;
-}
-.about-feature .icon { font-size: 22px; flex-shrink: 0; }
-.about-feature strong { display: block; font-size: 14px; color: var(--navy); font-weight: 600; }
-.about-feature span { font-size: 12.5px; color: var(--muted); }
+    .emergency-bar span {
+      margin: 0 12px;
+      opacity: 0.6;
+    }
 
-/* SERVICES */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-.service-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 24px 20px;
-  transition: all 0.3s;
-  cursor: pointer;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--teal);
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
-.service-card:hover::before { transform: scaleX(1); }
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--shadow);
-  border-color: var(--teal);
-}
-.service-icon {
-  width: 54px; height: 54px;
-  background: var(--teal-pale);
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px;
-  margin: 0 auto 14px;
-  transition: background 0.3s;
-}
-.service-card:hover .service-icon { background: var(--teal); }
-.service-card h4 { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-.service-card p { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
-.service-link {
-  font-size: 12px;
-  color: var(--teal);
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.3px;
-}
+    /* STICKY HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      transition: box-shadow 0.3s;
+    }
 
-/* WHY CHOOSE */
-.why-bg { background: #fff; }
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-.why-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 28px;
-  transition: all 0.3s;
-  box-shadow: 0 8px 24px rgba(37,99,235,0.05);
-}
-.why-card:hover {
-  background: #fff;
-  border-color: var(--gold);
-  transform: translateY(-3px);
-}
-.why-card .icon {
-  width: 50px; height: 50px;
-  background: rgba(250,204,21,0.22);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px;
-  margin-bottom: 18px;
-}
-.why-card h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.why-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-.why-bg .section-tag { background: rgba(250,204,21,0.22); color: var(--teal-dark); }
-.why-bg .section-title { color: var(--navy); }
-.why-bg .section-sub { color: var(--muted); }
+    .header.scrolled {
+      box-shadow: 0 4px 24px var(--shadow);
+    }
 
-/* ADVANCED CARE */
-.advanced-bg { background: #fff; }
-.advanced-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.advanced-list { display: flex; flex-direction: column; gap: 16px; }
-.advanced-item {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 20px;
-  background: var(--white);
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  transition: all 0.3s;
-}
-.advanced-item:hover { border-color: var(--teal); box-shadow: 0 6px 24px var(--shadow); }
-.advanced-item .dot {
-  width: 44px; height: 44px;
-  background: var(--teal-pale);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-.advanced-item h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-.advanced-item p { font-size: 13px; color: var(--muted); line-height: 1.5; }
-.advanced-visual {
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-  border-radius: 24px;
-  padding: 48px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.advanced-visual::before {
-  content: '';
-  display: none;
-}
-.advanced-visual h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  margin-bottom: 16px;
-  position: relative;
-}
-.advanced-visual p { font-size: 15px; opacity: 0.82; line-height: 1.7; position: relative; }
-.advanced-hours {
-  background: rgba(255,255,255,0.15);
-  border-radius: 14px;
-  padding: 20px;
-  margin-top: 28px;
-  position: relative;
-}
-.advanced-hours h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-.advanced-hours p { font-size: 24px; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 16px;
+    }
 
-/* DOCTOR */
-.doctor-section { background: #fff; }
-.doctor-card {
-  background: var(--white);
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  max-width: 480px;
-  margin: 0 auto;
-  box-shadow: 0 8px 40px var(--shadow);
-}
-.doctor-top {
-  background: #fff;
-  padding: 56px 48px 48px;
-  text-align: center;
-  position: relative;
-  border-bottom: 1px solid var(--border);
-}
-.doctor-avatar {
-  width: 150px; height: 150px;
-  background: rgba(37,99,235,0.08);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 52px;
-  margin: 0 auto 24px;
-  border: 4px solid rgba(250,204,21,0.45);
-}
-.doctor-top h3 {
-  font-size: 24px;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-.doctor-top .qual { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
-.doctor-badge-chip {
-  display: inline-block;
-  background: rgba(250,204,21,0.22);
-  color: var(--navy);
-  padding: 5px 14px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.doctor-body { padding: 32px; }
-.doctor-body p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
-.doctor-specialties { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.spec-tag {
-  background: var(--teal-pale);
-  color: var(--teal-dark);
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.doctor-timings {
-  background: var(--teal-pale);
-  border-radius: 12px;
-  padding: 16px 20px;
-  display: flex; align-items: center; gap: 12px;
-}
-.doctor-timings .icon { font-size: 22px; }
-.doctor-timings p { font-size: 13px; font-weight: 600; color: var(--teal-dark); }
-.doctor-timings span { font-size: 12px; color: var(--muted); }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-/* APPOINTMENT */
-.appt-bg { background: #fff; }
-.appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.appt-bg .section-tag { background: rgba(250,204,21,0.22); color: var(--teal-dark); }
-.appt-bg .section-title { color: var(--navy); }
-.appt-bg .section-sub { color: var(--muted); }
-.appt-steps { display: flex; flex-direction: column; gap: 20px; margin-top: 36px; }
-.appt-step {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(37,99,235,0.05);
-}
-.step-num {
-  width: 36px; height: 36px;
-  background: rgba(250,204,21,0.25);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--navy);
-  flex-shrink: 0;
-}
-.appt-step h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-.appt-step p { font-size: 13px; color: var(--muted); }
-.appt-form {
-  background: var(--white);
-  border-radius: 24px;
-  padding: 36px;
-  box-shadow: 0 20px 60px rgba(37,99,235,0.10);
-  border: 1px solid var(--border);
-}
-.appt-form h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.appt-form p { font-size: 13.5px; color: var(--muted); margin-bottom: 24px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-group { margin-bottom: 16px; }
-.form-group label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.3px; }
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  background: var(--cream);
-  transition: border-color 0.2s;
-  outline: none;
-}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--teal);
-  background: #fff;
-}
-.form-group textarea { height: 90px; resize: vertical; }
-.form-submit {
-  width: 100%;
-  padding: 14px;
-  background: var(--teal);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s;
-  margin-top: 4px;
-}
-.form-submit:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 8px 24px var(--shadow); }
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 30px;
-}
-.form-success .check { font-size: 52px; margin-bottom: 16px; }
-.form-success h4 { font-size: 20px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
-.form-success p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.form-quick-links { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
-.form-quick-links a {
-  padding: 9px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.fql-call { background: var(--teal-pale); color: var(--teal-dark); }
-.fql-wa { background: #e8f5e0; color: #256029; }
-.fql-dir { background: #fff3e0; color: #7a4500; }
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--teal);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+    }
 
-/* WELLNESS */
-.wellness-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-}
-.wellness-card {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  text-align: center;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.wellness-card:hover {
-  border-color: var(--teal);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--shadow);
-}
-.wellness-card .icon { font-size: 36px; margin-bottom: 14px; }
-.wellness-card h4 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.wellness-card .tagline { font-size: 12.5px; color: var(--teal); font-weight: 600; margin-bottom: 16px; }
-.wellness-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
-.wellness-card .price { font-size: 22px; font-weight: 700; color: var(--teal-dark); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-.wellness-cta {
-  width: 100%;
-  padding: 10px;
-  background: rgba(250,204,21,0.18);
-  color: var(--navy);
-  border: 1.5px solid var(--teal);
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.wellness-cta:hover { background: var(--teal); color: #fff; }
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }
 
-/* TESTIMONIALS */
-.testimonials-bg { background: #fff; }
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-.testimonial-card {
-  background: var(--white);
-  border-radius: 18px;
-  padding: 28px;
-  border: 1px solid var(--border);
-  transition: all 0.3s;
-  position: relative;
-}
-.testimonial-card:hover { box-shadow: 0 10px 40px var(--shadow); border-color: var(--teal); }
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: 16px; right: 24px;
-  font-size: 60px;
-  font-family: 'Playfair Display', serif;
-  color: var(--teal-pale);
-  line-height: 1;
-}
-.stars { color: #f0a500; font-size: 14px; margin-bottom: 14px; }
-.testimonial-card p { font-size: 14.5px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
-.testimonial-author { display: flex; align-items: center; gap: 12px; }
-.author-avatar {
-  width: 42px; height: 42px;
-  background: var(--teal-pale);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-}
-.author-name { font-size: 14px; font-weight: 700; color: var(--navy); }
-.author-sub { font-size: 12px; color: var(--muted); }
+    footer .logo-icon {
+      background: var(--gold);
+      color: #2563eb;
+    }
 
-/* BLOG */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
-.blog-card {
-  background: var(--white);
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  transition: all 0.3s;
-}
-.blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px var(--shadow); }
-.blog-img {
-  height: 170px;
-  background: linear-gradient(135deg, var(--teal-pale), #c8ede9);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 56px;
-}
-.blog-body { padding: 22px; }
-.blog-cat { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-.blog-body h4 { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 10px; }
-.blog-body p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
-.blog-link { font-size: 13px; color: var(--teal); font-weight: 700; text-decoration: none; }
+    footer .logo-icon svg {
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
 
-/* FAQ */
-.faq-bg { background: var(--white); }
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.faq-item {
-  background: var(--cream);
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: all 0.3s;
-}
-.faq-item:hover { border-color: var(--teal); }
-.faq-q {
-  padding: 18px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  cursor: pointer;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--navy);
-  gap: 12px;
-}
-.faq-toggle {
-  width: 26px; height: 26px;
-  background: var(--teal-pale);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  color: var(--teal);
-  flex-shrink: 0;
-  transition: all 0.3s;
-}
-.faq-item.open .faq-toggle { background: var(--teal); color: #fff; transform: rotate(45deg); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  padding: 0 20px;
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.faq-item.open .faq-a { max-height: 200px; padding: 0 20px 18px; }
+    .logo-text h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: var(--navy);
+      line-height: 1.1;
+      font-weight: 700;
+    }
 
-/* LOCATION */
-.location-bg { background: #fff; }
-.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.location-info { display: flex; flex-direction: column; gap: 16px; }
-.location-detail {
-  display: flex; align-items: flex-start; gap: 16px;
-  padding: 18px;
-  background: var(--white);
-  border-radius: 14px;
-  border: 1px solid var(--border);
-}
-.location-detail .icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-.location-detail h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; letter-spacing: 0.3px; }
-.location-detail p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-.location-detail a { color: var(--teal); text-decoration: none; font-weight: 600; }
-.map-frame {
-  background: var(--white);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 32px var(--shadow);
-  height: 360px;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column;
-  gap: 16px;
-  font-size: 15px;
-  color: var(--muted);
-}
-.map-frame .map-icon { font-size: 48px; }
-.map-frame a {
-  padding: 12px 24px;
-  background: var(--teal);
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-}
+    .logo-text p {
+      font-size: 11px;
+      color: var(--teal);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
 
-/* FINAL CTA */
-.final-cta {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
-  padding: 100px 24px;
-  text-align: center;
-}
-.final-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 48px);
-  color: #fff;
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-.final-cta p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
-.final-ctas { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-.btn-final {
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s;
-  display: flex; align-items: center; gap: 8px;
-}
-.btn-final-primary { background: #fff; color: var(--teal-dark); border: none; }
-.btn-final-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-.btn-final-wa { background: #25d366; color: #fff; border: none; }
-.btn-final-wa:hover { background: #1da851; transform: translateY(-2px); }
-.btn-final-call { background: rgba(255,255,255,0.12); color: #fff; border: 1.5px solid rgba(255,255,255,0.3); }
-.btn-final-call:hover { background: rgba(255,255,255,0.2); }
+    nav {
+      display: flex;
+      gap: 4px;
+    }
 
-/* FOOTER */
-footer {
-  background: var(--navy);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.7);
-  padding: 64px 24px 32px;
-}
-.footer-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-.footer-brand p { font-size: 14px; line-height: 1.7; margin: 16px 0; }
-.footer-social { display: flex; gap: 10px; }
-.social-icon {
-  width: 36px; height: 36px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-decoration: none;
-  color: inherit;
-}
-.social-icon:hover { background: var(--teal); }
-.footer-col h5 { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col li a { font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
-.footer-col li a:hover { color: #a8eddf; }
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 12.5px;
-}
-.footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 16px; }
-.footer-bottom a:hover { color: #a8eddf; }
+    nav a {
+      padding: 8px 14px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
 
-/* FLOATING BUTTONS */
-.float-wa {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  width: 58px; height: 58px;
-  background: #25d366;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px;
-  text-decoration: none;
-  z-index: 1000;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.4);
-  transition: all 0.3s;
-  animation: pulse-wa 2s infinite;
-}
-.float-wa:hover { transform: scale(1.1); }
-@keyframes pulse-wa {
-  0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
-}
-.float-book {
-  position: fixed;
-  bottom: 28px; left: 28px;
-  background: var(--teal);
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  z-index: 1000;
-  box-shadow: 0 6px 24px var(--shadow);
-  display: none;
-  transition: all 0.3s;
-}
+    nav a:hover {
+      color: var(--teal);
+      background: var(--teal-pale);
+    }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate { animation: fadeUp 0.6s ease forwards; }
-.anim-delay-1 { animation-delay: 0.1s; }
-.anim-delay-2 { animation-delay: 0.2s; }
-.anim-delay-3 { animation-delay: 0.3s; }
-.anim-delay-4 { animation-delay: 0.4s; }
-.anim-delay-5 { animation-delay: 0.5s; }
+    .header-ctas {
+      display: flex;
+      gap: 8px;
+    }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { display: none; }
-  .hamburger { display: block; }
-  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-card { display: none; }
-  .trust-inner { grid-template-columns: repeat(2, 1fr); }
-  .about-grid, .advanced-grid, .appt-grid, .location-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .faq-grid { grid-template-columns: 1fr; }
-  .float-book { display: flex; }
-  .header-ctas .btn-call { display: none; }
-}
-@media (max-width: 600px) {
-  .emergency-bar { font-size: 11px; }
-  .trust-inner { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr; }
-  .about-features { grid-template-columns: 1fr; }
-}
+    .btn-call {
+      padding: 9px 18px;
+      background: transparent;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
 
-/* MOBILE NAV */
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10,60,53,0.97);
-  z-index: 2000;
-  padding: 80px 32px;
-  flex-direction: column;
-  gap: 24px;
-}
-.mobile-nav.open { display: flex; }
-.mobile-nav a {
-  font-size: 22px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.mobile-nav-close {
-  position: absolute;
-  top: 24px; right: 24px;
-  font-size: 28px;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-body, button, input, select, textarea { font-family: 'Inter', sans-serif; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif !important; font-weight: 700 !important; letter-spacing: -0.02em; }
-.hero { background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%) !important; }
-.hero h2 em { color: var(--gold) !important; font-style: normal; }
-.section, .trust-bar, .doctor-section, .advanced-bg, .faq-bg, .location-bg, .testimonials-bg, #services, #why { background: #fff !important; }
-.section-tag { background: rgba(250,204,21,0.22) !important; color: var(--teal-dark) !important; }
-.section-title, .about-content h2, .doctor-top h3, .advanced-visual h3, .appt-form h3, .final-cta h2 { font-family: 'Inter', sans-serif !important; }
-.section-title, .about-content h2, .doctor-body p, .appt-form h3, .wellness-card h4, .service-card h4, .advanced-item h4 { color: var(--text) !important; }
-.btn-book, .btn-hero-primary, .form-submit, .map-frame a, .float-book { background: var(--teal) !important; color: #fff !important; border-color: var(--teal) !important; }
-.btn-book:hover, .btn-hero-primary:hover, .form-submit:hover, .map-frame a:hover, .float-book:hover { background: var(--teal-dark) !important; }
-.btn-call, .btn-hero-secondary, .wellness-cta { background: #fff !important; color: var(--teal) !important; border-color: var(--teal) !important; }
-.btn-call:hover, .btn-hero-secondary:hover, .wellness-cta:hover { background: var(--gold) !important; color: var(--navy) !important; border-color: var(--gold) !important; }
-.why-bg, .appt-bg { background: #fff !important; }
-.doctor-top { background: #fff !important; }
-.final-cta, footer { background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%) !important; }
-.why-bg .section-title, .why-bg .section-sub, .appt-bg .section-title, .appt-bg .section-sub { color: var(--text) !important; }
-.doctor-top h3, .doctor-top .qual, .doctor-badge-chip { color: var(--navy) !important; }
-.final-cta h2, .final-cta p { color: #fff !important; }
-.footer-grid, .footer-bottom { color: rgba(255,255,255,0.7) !important; }
-.doctor-top { border: 1px solid var(--border); }
-.doctor-avatar { overflow: hidden; }
-.doctor-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.doctor-body p { line-height: 1.75; }
-.doctor-top .qual { color: var(--muted) !important; }
-.spec-tag { background: rgba(250,204,21,0.18) !important; color: var(--text) !important; }
-.doctor-timings { background: rgba(37,99,235,0.08) !important; }
-.doctor-timings p { color: var(--text) !important; }
-a[href*="wa.me"] { background: var(--gold) !important; color: var(--text) !important; border-color: var(--gold) !important; }
-a[href*="wa.me"]:hover { background: #ffdf66 !important; }
-</style>
+    .btn-call:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .btn-book {
+      padding: 9px 18px;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-book:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--navy);
+      background: none;
+      border: none;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 24px 60px;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 em {
+      font-style: italic;
+      color: #a8eddf;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #1a1f35;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      padding: 14px 28px;
+      background: #fff;
+      color: var(--teal-dark);
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-hero-secondary {
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.76) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      border-radius: 24px;
+      padding: 36px;
+      text-align: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 48px rgba(29, 78, 216, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(250, 204, 21, 0.08));
+      pointer-events: none;
+    }
+
+    .hero-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-animal-icon {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      text-align: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(250, 204, 21, 0.18));
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
+      transform: translateX(-34px);
+    }
+
+    .hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      color: #000;
+      margin-bottom: 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid rgba(37, 99, 235, 0.08);
+    }
+
+    .hero-stat .num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-stat .lbl {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* TRUST METRICS */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .trust-item {
+      padding: 28px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-item:hover {
+      background: var(--teal-pale);
+    }
+
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--teal);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .trust-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--teal-pale);
+      color: var(--teal);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-header.center .section-sub {
+      margin: 0 auto;
+    }
+
+    /* ABOUT DOCTOR */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      background: linear-gradient(135deg, var(--teal-pale), #c8ede9);
+      border-radius: 24px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(10, 124, 110, 0.15), transparent);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      padding: 16px 20px;
+      z-index: 2;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-badge h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .about-badge p {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .about-content p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--teal-pale);
+      border-radius: 12px;
+    }
+
+    .about-feature .icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .about-feature strong {
+      display: block;
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .about-feature span {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 20px;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+      border-color: var(--teal);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      background: var(--teal-pale);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 14px;
+      transition: background 0.3s;
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--teal);
+    }
+
+    .service-card h4 {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .service-link {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    /* WHY CHOOSE */
+    .why-bg {
+      background: #fff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.05);
+    }
+
+    .why-card:hover {
+      background: #fff;
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .why-card .icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(250, 204, 21, 0.22);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .why-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .why-bg .section-tag {
+      background: rgba(250, 204, 21, 0.22);
+      color: var(--teal-dark);
+    }
+
+    .why-bg .section-title {
+      color: var(--navy);
+    }
+
+    .why-bg .section-sub {
+      color: var(--muted);
+    }
+
+    /* ADVANCED CARE */
+    .advanced-bg {
+      background: #fff;
+    }
+
+    .advanced-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .advanced-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .advanced-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .advanced-item:hover {
+      border-color: var(--teal);
+      box-shadow: 0 6px 24px var(--shadow);
+    }
+
+    .advanced-item .dot {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .advanced-item h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .advanced-item p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .advanced-visual {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advanced-visual::before {
+      content: '';
+      display: none;
+    }
+
+    .advanced-visual h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .advanced-visual p {
+      font-size: 15px;
+      opacity: 0.82;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .advanced-hours {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 28px;
+      position: relative;
+    }
+
+    .advanced-hours h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .advanced-hours p {
+      font-size: 24px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* DOCTOR */
+    .doctor-section {
+      background: #fff;
+    }
+
+    .doctor-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px var(--shadow);
+    }
+
+    .doctor-top {
+      background: #fff;
+      padding: 56px 48px 48px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doctor-avatar {
+      width: 150px;
+      height: 150px;
+      background: rgba(37, 99, 235, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      margin: 0 auto 24px;
+      border: 4px solid rgba(250, 204, 21, 0.45);
+    }
+
+    .doctor-top h3 {
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .doctor-top .qual {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .doctor-badge-chip {
+      display: inline-block;
+      background: rgba(250, 204, 21, 0.22);
+      color: var(--navy);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .doctor-body {
+      padding: 32px;
+    }
+
+    .doctor-body p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .doctor-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .spec-tag {
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .doctor-timings {
+      background: var(--teal-pale);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doctor-timings .icon {
+      font-size: 22px;
+    }
+
+    .doctor-timings p {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+
+    .doctor-timings span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* APPOINTMENT */
+    .appt-bg {
+      background: #fff;
+    }
+
+    .appt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .appt-bg .section-tag {
+      background: rgba(250, 204, 21, 0.22);
+      color: var(--teal-dark);
+    }
+
+    .appt-bg .section-title {
+      color: var(--navy);
+    }
+
+    .appt-bg .section-sub {
+      color: var(--muted);
+    }
+
+    .appt-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .appt-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.05);
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: rgba(250, 204, 21, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .appt-step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .appt-step p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .appt-form {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 20px 60px rgba(37, 99, 235, 0.10);
+      border: 1px solid var(--border);
+    }
+
+    .appt-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .appt-form p {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      background: #fff;
+    }
+
+    .form-group textarea {
+      height: 90px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 4px;
+    }
+
+    .form-submit:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .form-success .check {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+
+    .form-success h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .form-quick-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-quick-links a {
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .fql-call {
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+    }
+
+    .fql-wa {
+      background: #e8f5e0;
+      color: #256029;
+    }
+
+    .fql-dir {
+      background: #fff3e0;
+      color: #7a4500;
+    }
+
+    /* WELLNESS */
+    .wellness-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .wellness-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wellness-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+    }
+
+    .wellness-card .icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .wellness-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .wellness-card .tagline {
+      font-size: 12.5px;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .wellness-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .wellness-card .price {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .wellness-cta {
+      width: 100%;
+      padding: 10px;
+      background: rgba(250, 204, 21, 0.18);
+      color: var(--navy);
+      border: 1.5px solid var(--teal);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .wellness-cta:hover {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-bg {
+      background: #fff;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 10px 40px var(--shadow);
+      border-color: var(--teal);
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-size: 60px;
+      font-family: 'Playfair Display', serif;
+      color: var(--teal-pale);
+      line-height: 1;
+    }
+
+    .stars {
+      color: #f0a500;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      background: var(--teal-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .author-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* BLOG */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--shadow);
+    }
+
+    .blog-img {
+      height: 170px;
+      background: linear-gradient(135deg, var(--teal-pale), #c8ede9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+    }
+
+    .blog-body {
+      padding: 22px;
+    }
+
+    .blog-cat {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .blog-body h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .blog-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .blog-link {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* FAQ */
+    .faq-bg {
+      background: var(--white);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--teal);
+    }
+
+    .faq-q {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      gap: 12px;
+    }
+
+    .faq-toggle {
+      width: 26px;
+      height: 26px;
+      background: var(--teal-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--teal);
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .faq-item.open .faq-toggle {
+      background: var(--teal);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 20px;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 0 20px 18px;
+    }
+
+    /* LOCATION */
+    .location-bg {
+      background: #fff;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .location-detail .icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .location-detail h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .location-detail p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .location-detail a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .map-frame {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 32px var(--shadow);
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .map-frame .map-icon {
+      font-size: 48px;
+    }
+
+    .map-frame a {
+      padding: 12px 24px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .final-cta p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 40px;
+    }
+
+    .final-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-final {
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-final-primary {
+      background: #fff;
+      color: var(--teal-dark);
+      border: none;
+    }
+
+    .btn-final-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-final-wa {
+      background: #25d366;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-final-wa:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+
+    .btn-final-call {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-final-call:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 64px 24px 32px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 16px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .social-icon:hover {
+      background: var(--teal);
+    }
+
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col li a {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col li a:hover {
+      color: #a8eddf;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    .footer-bottom a:hover {
+      color: #a8eddf;
+    }
+
+    /* FLOATING BUTTONS */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s;
+      animation: pulse-wa 2s infinite;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse-wa {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 6px 40px rgba(37, 211, 102, 0.7);
+      }
+    }
+
+    .float-book {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      background: var(--teal);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 6px 24px var(--shadow);
+      display: none;
+      transition: all 0.3s;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .anim-delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .anim-delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .anim-delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .anim-delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .anim-delay-5 {
+      animation-delay: 0.5s;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .trust-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .advanced-grid,
+      .appt-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .float-book {
+        display: flex;
+      }
+
+      .header-ctas .btn-call {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .emergency-bar {
+        font-size: 11px;
+      }
+
+      .trust-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 60, 53, 0.97);
+      z-index: 2000;
+      padding: 80px 32px;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      font-size: 22px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 28px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    body,
+    button,
+    input,
+    select,
+    textarea {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%) !important;
+    }
+
+    .hero h2 em {
+      color: var(--gold) !important;
+      font-style: normal;
+    }
+
+    .section,
+    .trust-bar,
+    .doctor-section,
+    .advanced-bg,
+    .faq-bg,
+    .location-bg,
+    .testimonials-bg,
+    #services,
+    #why {
+      background: #fff !important;
+    }
+
+    .section-tag {
+      background: rgba(250, 204, 21, 0.22) !important;
+      color: var(--teal-dark) !important;
+    }
+
+    .section-title,
+    .about-content h2,
+    .doctor-top h3,
+    .advanced-visual h3,
+    .appt-form h3,
+    .final-cta h2 {
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    .section-title,
+    .about-content h2,
+    .doctor-body p,
+    .appt-form h3,
+    .wellness-card h4,
+    .service-card h4,
+    .advanced-item h4 {
+      color: var(--text) !important;
+    }
+
+    .btn-book,
+    .btn-hero-primary,
+    .form-submit,
+    .map-frame a,
+    .float-book {
+      background: var(--teal) !important;
+      color: #fff !important;
+      border-color: var(--teal) !important;
+    }
+
+    .btn-book:hover,
+    .btn-hero-primary:hover,
+    .form-submit:hover,
+    .map-frame a:hover,
+    .float-book:hover {
+      background: var(--teal-dark) !important;
+    }
+
+    .btn-call,
+    .btn-hero-secondary,
+    .wellness-cta {
+      background: #fff !important;
+      color: var(--teal) !important;
+      border-color: var(--teal) !important;
+    }
+
+    .btn-call:hover,
+    .btn-hero-secondary:hover,
+    .wellness-cta:hover {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+      border-color: var(--gold) !important;
+    }
+
+    .why-bg,
+    .appt-bg {
+      background: #fff !important;
+    }
+
+    .doctor-top {
+      background: #fff !important;
+    }
+
+    .final-cta,
+    footer {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%) !important;
+    }
+
+    .why-bg .section-title,
+    .why-bg .section-sub,
+    .appt-bg .section-title,
+    .appt-bg .section-sub {
+      color: var(--text) !important;
+    }
+
+    .doctor-top h3,
+    .doctor-top .qual,
+    .doctor-badge-chip {
+      color: var(--navy) !important;
+    }
+
+    .final-cta h2,
+    .final-cta p {
+      color: #fff !important;
+    }
+
+    .footer-grid,
+    .footer-bottom {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .doctor-top {
+      border: 1px solid var(--border);
+    }
+
+    .doctor-avatar {
+      overflow: hidden;
+    }
+
+    .doctor-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .doctor-body p {
+      line-height: 1.75;
+    }
+
+    .doctor-top .qual {
+      color: var(--muted) !important;
+    }
+
+    .spec-tag {
+      background: rgba(250, 204, 21, 0.18) !important;
+      color: var(--text) !important;
+    }
+
+    .doctor-timings {
+      background: rgba(37, 99, 235, 0.08) !important;
+    }
+
+    .doctor-timings p {
+      color: var(--text) !important;
+    }
+
+    a[href*="wa.me"] {
+      background: var(--gold) !important;
+      color: var(--text) !important;
+      border-color: var(--gold) !important;
+    }
+
+    a[href*="wa.me"]:hover {
+      background: #ffdf66 !important;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Page accents removed (reference-only) -->
 
 
-<!-- EMERGENCY BAR -->
-<div class="emergency-bar">
-  🚨 24/7 Emergency Care Available &nbsp;<span>|</span>&nbsp; Call Now: <a href="tel:7672055007">📞 76720 55007</a>
-  <span>|</span>&nbsp; D.No. 12/19/33/1, Green Hills Rd, Moosapet, Hyderabad
-</div>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="closeNav()">✕</button>
-  <a href="#home" onclick="closeNav()">Home</a>
-  <a href="#about" onclick="closeNav()">About</a>
-  <a href="#services" onclick="closeNav()">Services</a>
-  <a href="#doctor" onclick="closeNav()">Our Doctor</a>
-  <a href="#appointment" onclick="closeNav()">Book Appointment</a>
-  <a href="#wellness" onclick="closeNav()">Wellness Packages</a>
-  <a href="#faq" onclick="closeNav()">FAQ</a>
-  <a href="#location" onclick="closeNav()">Location</a>
-  <a href="tel:7672055007" style="color:#a8eddf; margin-top: 16px;">📞 76720 55007</a>
-</div>
-
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="header-inner">
-    <a href="#home" class="logo">
-      <div class="logo-icon"><img src="public/logo2.jpeg" alt="Noah Animal Clinic logo"></div>
-      <div class="logo-text">
-        <h1>Noah Animal Clinic</h1>
-        <p>Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine) ·
-PGDVEN (Endoscopy)</p>
-      </div>
-    </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#doctor">Doctor</a>
-      <a href="#appointment">Book</a>
-      <a href="#location">Location</a>
-    </nav>
-    <div class="header-ctas">
-      <a href="tel:7672055007" class="btn-call">📞 Call Now</a>
-      <a href="#appointment" class="btn-book">Book Appointment →</a>
-    </div>
-    <button class="hamburger" onclick="openNav()">☰</button>
+  <!-- EMERGENCY BAR -->
+  <div class="emergency-bar">
+    🚨 24/7 Emergency Care Available &nbsp;<span>|</span>&nbsp; Call Now: <a href="tel:7672055007">📞 76720 55007</a>
+    <span>|</span>&nbsp; D.No. 12/19/33/1, Green Hills Rd, Moosapet, Hyderabad
   </div>
-</header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag animate">⭐ Hyderabad's Trusted Pet Hospital</div>
-      <h2 class="animate anim-delay-1">Advanced, <em>Compassionate</em> Veterinary Care for Your Pet</h2>
-      <p class="animate anim-delay-2">Premium pet healthcare in Moosapet, Hyderabad for dogs, cats, birds, and exotic pets. Expert diagnostics, emergency care & specialist treatment under one roof.</p>
-      <div class="hero-ctas animate anim-delay-3">
-        <a href="#appointment" class="btn-hero-primary">📅 Book Appointment</a>
-        <a href="tel:7672055007" class="btn-hero-secondary">📞 Call 76720 55007</a>
-        <a href="https://wa.me/917672055007" target="_blank" class="btn-hero-secondary">💬 WhatsApp</a>
-      </div>
-      <div class="hero-badges animate anim-delay-4">
-        <span class="hero-badge">🩺 M.V.Sc Specialist (Internal Medicine) · PGDVEN (Endoscopy)</span>
-        <span class="hero-badge">🔬 In-House Lab</span>
-        <span class="hero-badge">🏥 Emergency Care</span>
-        <span class="hero-badge">🐦 Exotic Pets</span>
-        <span class="hero-badge">💊 Pet Pharmacy</span>
-      </div>
-    </div>
-    <div class="hero-card animate anim-delay-5">
-      <div class="hero-animal-icon"><img src="/logo2.jpeg" alt="Noah Animal Clinic" style="width:80px;height:80px;border-radius:50%;object-fit:cover;"></div>
-      <h3>Your Pet's Health,<br>Our Priority</h3>
-      <p>Open 9:00 AM – 9:00 PM · Emergency Support Available</p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">15+</div>
-          <div class="lbl">Specialities</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">9AM</div>
-          <div class="lbl">Open Daily</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">3</div>
-          <div class="lbl">Pet Types</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">🐾</div>
-          <div class="lbl">Expert Care</div>
-        </div>
-      </div>
-    </div>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="closeNav()">✕</button>
+    <a href="#home" onclick="closeNav()">Home</a>
+    <a href="#about" onclick="closeNav()">About</a>
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#doctor" onclick="closeNav()">Our Doctor</a>
+    <a href="#appointment" onclick="closeNav()">Book Appointment</a>
+    <a href="#wellness" onclick="closeNav()">Wellness Packages</a>
+    <a href="#faq" onclick="closeNav()">FAQ</a>
+    <a href="#location" onclick="closeNav()">Location</a>
+    <a href="tel:7672055007" style="color:#a8eddf; margin-top: 16px;">📞 76720 55007</a>
   </div>
-</section>
 
-<!-- TRUST METRICS -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-num">15+</div>
-      <div class="trust-label">Specialised Services</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-num">1</div>
-      <div class="trust-label">Expert Veterinarian</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-num">12hrs</div>
-      <div class="trust-label">Daily Clinic Hours</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-num">🐾</div>
-      <div class="trust-label">Dogs · Cats · Birds · Exotic</div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-img">
-        <img src="public/Operating_area.jpeg" alt="Operating area at Noah Animal Clinic">
-        <div class="about-badge">
-          <h4>Dr. S. Ranjith Kumar</h4>
-          <p>M.V.Sc (Internal Medicine) ·
-PGDVEN (Endoscopy)· Lead Veterinarian</p>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#home" class="logo">
+        <div class="logo-icon"><img src="public/logo2.jpeg" alt="Noah Animal Clinic logo"></div>
+        <div class="logo-text">
+          <h1>Noah Animal Clinic</h1>
+          <p>Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine) ·
+            PGDVEN (Endoscopy)</p>
         </div>
+      </a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#doctor">Doctor</a>
+        <a href="#appointment">Book</a>
+        <a href="#location">Location</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="tel:7672055007" class="btn-call">📞 Call Now</a>
+        <a href="#appointment" class="btn-book">Book Appointment →</a>
       </div>
-      <div class="about-content">
-        <div class="section-tag">About Noah Animal Clinic</div>
-        <h2>A Clinic Built on Science, Compassion & Trust</h2>
-        <p>Noah Animal Clinic in Moosapet, Hyderabad is a privately operated, full-service veterinary hospital dedicated to delivering world-class medical care for your beloved pets — dogs, cats, birds, and exotic animals.</p>
-        <p>Founded and led by <strong>Dr. S. Ranjith Kumar, M.V.Sc (Internal Medicine)
-·PGDVEN (Endoscopy)</strong>, the clinic combines specialist-level expertise with a warm, pet-friendly environment. From routine wellness visits to advanced diagnostics, critical care, and specialty medicine — we are your pet's trusted healthcare partner.</p>
-        <div class="about-features">
-          <div class="about-feature">
-            <div class="icon">🔬</div>
-            <div><strong>In-House Laboratory</strong><span>Fast, accurate diagnostics on-site</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">🚑</div>
-            <div><strong>Emergency Support</strong><span>Immediate attention when it matters most</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">🌡️</div>
-            <div><strong>Specialist Medicine</strong><span>Oncology, Cardiology, Urology & more</span></div>
-          </div>
-          <div class="about-feature">
-            <div class="icon">🤝</div>
-            <div><strong>Transparent Care</strong><span>Clear guidance at every step</span></div>
-          </div>
-        </div>
-        <a href="#appointment" class="btn-book" style="display:inline-flex;align-items:center;gap:8px;">📅 Book a Consultation →</a>
-      </div>
+      <button class="hamburger" onclick="openNav()">☰</button>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- SERVICES -->
-<section class="section" id="services" style="background: var(--white);">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Our Services</div>
-      <h2 class="section-title">Comprehensive Pet Healthcare<br>Under One Roof</h2>
-      <p class="section-sub">From routine checkups to complex surgeries — we provide the full spectrum of veterinary care for dogs, cats, birds, and exotic pets.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🩺</div>
-        <h4>Wellness Check-ups</h4>
-        <p>Routine health assessments to keep your pet in optimal condition year-round.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💉</div>
-        <h4>Immunisation</h4>
-        <p>Comprehensive vaccination schedules for puppies, kittens, and adult pets.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🚨</div>
-        <h4>Emergency & Critical Care</h4>
-        <p>Rapid stabilisation and critical care for urgent veterinary situations.</p>
-        <a href="tel:7672055007" class="service-link">Call Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💧</div>
-        <h4>Fluid Therapy</h4>
-        <p>IV and supportive fluid management for dehydration and systemic illness.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🫁</div>
-        <h4>Gastro-Enterology</h4>
-        <p>Expert diagnosis and treatment of digestive system disorders in pets.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🐾</div>
-        <h4>Dermatology</h4>
-        <p>Skin, coat, and allergy conditions treated with targeted therapy.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🫀</div>
-        <h4>Cardiology</h4>
-        <p>Cardiac evaluation, ECG, and heart health management for your pet.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🎗️</div>
-        <h4>Oncology</h4>
-        <p>Compassionate diagnosis and supportive management of pet cancers.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🫘</div>
-        <h4>Urology</h4>
-        <p>Kidney and urinary tract evaluation and treatment for pets.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🦷</div>
-        <h4>Dental Scaling</h4>
-        <p>Professional oral hygiene care to prevent dental disease in pets.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🧬</div>
-        <h4>In-House Laboratory</h4>
-        <p>Blood panels, urinalysis, cytology and rapid diagnostic tests on-site.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🩸</div>
-        <h4>Blood Transfusion</h4>
-        <p>Emergency transfusion support for anaemia and critical care cases.</p>
-        <a href="tel:7672055007" class="service-link">Call Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">💊</div>
-        <h4>Pain Management</h4>
-        <p>Multi-modal pain relief and palliative care to keep your pet comfortable.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">👂</div>
-        <h4>ENT Examinations</h4>
-        <p>Ear, nose, and throat evaluation for common and complex conditions.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">♀️</div>
-        <h4>Gynaecology</h4>
-        <p>Reproductive health, spay/neuter, and female pet health management.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h4>Fitness Certification</h4>
-        <p>Health certificates for travel, breeding, and official documentation needs.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📞</div>
-        <h4>Tele Consultation</h4>
-        <p>Virtual vet consultations from the comfort of your home.</p>
-        <a href="https://wa.me/917672055007" class="service-link" target="_blank">Chat Now →</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🥗</div>
-        <h4>Nutritional Counselling</h4>
-        <p>Customised diet plans and nutritional guidance for lifelong pet wellness.</p>
-        <a href="#appointment" class="service-link">Book Now →</a>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top: 40px;">
-      <a href="#appointment" class="btn-book" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;padding:13px 30px;">📅 Book Your Appointment Today →</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="section why-bg" id="why">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Why Choose Us</div>
-      <h2 class="section-title">Why Pet Parents in Hyderabad<br>Trust Noah Animal Clinic</h2>
-      <p class="section-sub">A hospital that treats your pet like family — with expertise, empathy, and transparency at every step.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="icon">👨‍⚕️</div>
-        <h4>Specialist Veterinarian</h4>
-        <p>Dr. S. Ranjith Kumar holds an M.V.Sc in Medicine — bringing specialist-level knowledge to every consultation.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🔬</div>
-        <h4>Advanced Diagnostics</h4>
-        <p>In-house laboratory, diagnostic equipment and rapid test capabilities for accurate, fast results.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🏥</div>
-        <h4>15+ Medical Specialities</h4>
-        <p>From cardiology and oncology to ENT, dermatology and gynaecology — comprehensive care under one roof.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🚨</div>
-        <h4>Emergency Support</h4>
-        <p>Rapid response for critical cases. Call us for urgent care guidance and immediate stabilisation support.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🐦</div>
-        <h4>Exotic & Bird Care</h4>
-        <p>Experienced in treating parrots, small animals, reptiles and other exotic pets — not just dogs and cats.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">💬</div>
-        <h4>Transparent Guidance</h4>
-        <p>We explain every diagnosis, treatment option, and cost clearly — so you always make informed decisions.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">🤲</div>
-        <h4>Gentle Handling</h4>
-        <p>A stress-reduced, pet-friendly environment with a calm, gentle approach to every animal in our care.</p>
-      </div>
-      <div class="why-card">
-        <div class="icon">📱</div>
-        <h4>Easy Access</h4>
-        <p>Book by phone, WhatsApp, or online form. Tele consultation also available from anywhere in Hyderabad.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ADVANCED CARE -->
-<section class="section advanced-bg" id="advanced">
-  <div class="section-inner">
-    <div class="advanced-grid">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
       <div>
-        <div class="section-tag">Advanced Care</div>
-        <h2 class="section-title">Advanced Care<br>When It Matters Most</h2>
-        <p class="section-sub" style="margin-bottom: 32px;">When your pet's condition requires more than routine care, Noah Animal Clinic is equipped and ready.</p>
-        <div class="advanced-list">
-          <div class="advanced-item">
-            <div class="dot">🚨</div>
-            <div><h4>Emergency Stabilisation</h4><p>Rapid triage and stabilisation for critical and life-threatening conditions in pets.</p></div>
+        <div class="hero-tag animate">⭐ Hyderabad's Trusted Pet Hospital</div>
+        <h2 class="animate anim-delay-1">Advanced, <em>Compassionate</em> Veterinary Care for Your Pet</h2>
+        <p class="animate anim-delay-2">Premium pet healthcare in Moosapet, Hyderabad for dogs, cats, birds, and exotic
+          pets. Expert diagnostics, emergency care & specialist treatment under one roof.</p>
+        <div class="hero-ctas animate anim-delay-3">
+          <a href="#appointment" class="btn-hero-primary">📅 Book Appointment</a>
+          <a href="tel:7672055007" class="btn-hero-secondary">📞 Call 76720 55007</a>
+          <a href="https://wa.me/917672055007" target="_blank" class="btn-hero-secondary">💬 WhatsApp</a>
+        </div>
+        <div class="hero-badges animate anim-delay-4">
+          <span class="hero-badge">🩺 M.V.Sc Specialist (Internal Medicine) · PGDVEN (Endoscopy)</span>
+          <span class="hero-badge">🔬 In-House Lab</span>
+          <span class="hero-badge">🏥 Emergency Care</span>
+          <span class="hero-badge">🐦 Exotic Pets</span>
+          <span class="hero-badge">💊 Pet Pharmacy</span>
+        </div>
+      </div>
+      <div class="hero-card animate anim-delay-5">
+        <div class="hero-animal-icon">🐕</div>
+        <h3>Your Pet's Health,<br>Our Priority</h3>
+        <p>Open 9:00 AM – 9:00 PM · Emergency Support Available</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">15+</div>
+            <div class="lbl">Specialities</div>
           </div>
-          <div class="advanced-item">
-            <div class="dot">💊</div>
-            <div><h4>Critical Care Management</h4><p>Intensive monitoring, IV therapy, and multi-drug protocols for seriously ill animals.</p></div>
+          <div class="hero-stat">
+            <div class="num">9AM</div>
+            <div class="lbl">Open Daily</div>
           </div>
-          <div class="advanced-item">
-            <div class="dot">🔬</div>
-            <div><h4>In-House Diagnostics</h4><p>Rapid lab results, blood work, and urinalysis without sending samples out.</p></div>
+          <div class="hero-stat">
+            <div class="num">3</div>
+            <div class="lbl">Pet Types</div>
           </div>
-          <div class="advanced-item">
-            <div class="dot">🫀</div>
-            <div><h4>Multi-System Medicine</h4><p>Specialist-level workup for cardiac, renal, hepatic, neurological and endocrine conditions.</p></div>
-          </div>
-          <div class="advanced-item">
-            <div class="dot">🩸</div>
-            <div><h4>Blood Transfusion Support</h4><p>Emergency transfusions for anaemic or critically haemorrhaging patients.</p></div>
+          <div class="hero-stat">
+            <div class="num">🐾</div>
+            <div class="lbl">Expert Care</div>
           </div>
         </div>
       </div>
-      <div class="advanced-visual">
-        <h3>Open 9 AM – 9 PM<br>Every Day</h3>
-        <p>12 continuous hours of professional veterinary care, six days a week. Emergency guidance available on call.</p>
-        <div class="advanced-hours">
-          <h4>📍 Clinic Location</h4>
-          <p style="font-size:15px;font-family:'Inter',sans-serif;font-weight:500;">D.No. 12/19/33/1, 1st Floor,<br>Besides Rainbow Vistas Phase-1,<br>Green Hills Road, Sevalal Nagar,<br>Moosapet, Hyderabad 500018</p>
-        </div>
-        <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-          <a href="tel:7672055007" style="padding:11px 20px;background:rgba(255,255,255,0.2);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📞 76720 55007</a>
-          <a href="https://wa.me/917672055007" target="_blank" style="padding:11px 20px;background:#25d366;color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">💬 WhatsApp</a>
-        </div>
+    </div>
+  </section>
+
+  <!-- TRUST METRICS -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-num">15+</div>
+        <div class="trust-label">Specialised Services</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">1</div>
+        <div class="trust-label">Expert Veterinarian</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">12hrs</div>
+        <div class="trust-label">Daily Clinic Hours</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">🐾</div>
+        <div class="trust-label">Dogs · Cats · Birds · Exotic</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- DOCTOR -->
-<section class="section doctor-section" id="doctor">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Our Veterinarian</div>
-      <h2 class="section-title">Meet Dr. S. Ranjith Kumar</h2>
-      <p class="section-sub">Specialist veterinarian leading Noah Animal Clinic with expertise, dedication, and compassionate care for every patient.</p>
-    </div>
-    <div class="doctor-card">
-      <div class="doctor-top">
-        <div class="doctor-avatar"><img src="public/DR.jpeg" alt="Dr. S. Ranjith Kumar"></div>
-        <h3>Dr. S. Ranjith Kumar</h3>
-        <p class="qual">M.V.Sc (Internal Medicine) · PGDVEN (Endoscopy)</p>
-        <span class="doctor-badge-chip">🏥 Lead Veterinarian, Noah Animal Clinic</span>
-      </div>
-      <div class="doctor-body">
-        <p>I bring over eight years of dedicated experience in small animal clinical practice, having had the privilege of working with leading veterinary hospitals across India.Throughout my career, I have developed a strong foundation in clinical medicine and a thoughtful, evidence-based approach to patient care.</p>
-        <p>I am committed to delivering compassionate, high-quality treatment, with a focus on building trust with pet parents while effectively managing both routine and complex medical cases.</p>
-        <div class="doctor-specialties">
-          <span class="spec-tag">Internal Medicine</span>
-          <span class="spec-tag">Emergency Care</span>
-          <span class="spec-tag">Oncology</span>
-          <span class="spec-tag">Cardiology</span>
-          <span class="spec-tag">Dermatology</span>
-          <span class="spec-tag">Gastroenterology</span>
-          <span class="spec-tag">Exotic Pets</span>
-          <span class="spec-tag">Gynaecology</span>
-        </div>
-        <div class="doctor-timings">
-          <div class="icon">🕘</div>
-          <div>
-            <p>Monday – Saturday: 9:00 AM – 9:00 PM</p>
-            <span>Emergency guidance available on call outside clinic hours</span>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="public/Operating_area.jpeg" alt="Operating area at Noah Animal Clinic">
+          <div class="about-badge">
+            <h4>Dr. S. Ranjith Kumar</h4>
+            <p>M.V.Sc (Internal Medicine) ·
+              PGDVEN (Endoscopy)· Lead Veterinarian</p>
           </div>
         </div>
-        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="#appointment" class="btn-book" style="flex:1;text-align:center;display:flex;align-items:center;justify-content:center;">📅 Book Consultation</a>
-          <a href="tel:7672055007" class="btn-call" style="flex:1;justify-content:center;">📞 Call Clinic</a>
+        <div class="about-content">
+          <div class="section-tag">About Noah Animal Clinic</div>
+          <h2>A Clinic Built on Science, Compassion & Trust</h2>
+          <p>Noah Animal Clinic in Moosapet, Hyderabad is a privately operated, full-service veterinary hospital
+            dedicated to delivering world-class medical care for your beloved pets — dogs, cats, birds, and exotic
+            animals.</p>
+          <p>Founded and led by <strong>Dr. S. Ranjith Kumar, M.V.Sc (Internal Medicine)
+              ·PGDVEN (Endoscopy)</strong>, the clinic combines specialist-level expertise with a warm, pet-friendly
+            environment. From routine wellness visits to advanced diagnostics, critical care, and specialty medicine —
+            we are your pet's trusted healthcare partner.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="icon">🔬</div>
+              <div><strong>In-House Laboratory</strong><span>Fast, accurate diagnostics on-site</span></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">🚑</div>
+              <div><strong>Emergency Support</strong><span>Immediate attention when it matters most</span></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">🌡️</div>
+              <div><strong>Specialist Medicine</strong><span>Oncology, Cardiology, Urology & more</span></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">🤝</div>
+              <div><strong>Transparent Care</strong><span>Clear guidance at every step</span></div>
+            </div>
+          </div>
+          <a href="#appointment" class="btn-book" style="display:inline-flex;align-items:center;gap:8px;">📅 Book a
+            Consultation →</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- APPOINTMENT -->
-<section class="section appt-bg" id="appointment">
-  <div class="section-inner">
-    <div class="appt-grid">
-      <div>
-        <div class="section-tag">Book Appointment</div>
-        <h2 class="section-title">3 Simple Steps to Quality Pet Care</h2>
-        <p class="section-sub">Getting expert veterinary care for your pet at Noah Animal Clinic is quick and easy.</p>
-        <div class="appt-steps">
-          <div class="appt-step">
-            <div class="step-num">1</div>
-            <div>
-              <h4>Tell Us Your Pet's Concern</h4>
-              <p>Fill the appointment form or call us directly. Share your pet's name, type, and what you're noticing.</p>
-            </div>
-          </div>
-          <div class="appt-step">
-            <div class="step-num">2</div>
-            <div>
-              <h4>Choose Your Visit Type</h4>
-              <p>Walk into our Moosapet clinic or opt for a tele-consultation from the comfort of your home.</p>
-            </div>
-          </div>
-          <div class="appt-step">
-            <div class="step-num">3</div>
-            <div>
-              <h4>Get Confirmed via Call or WhatsApp</h4>
-              <p>Our team will confirm your appointment and guide you on what to bring for your pet's visit.</p>
-            </div>
-          </div>
+  <!-- SERVICES -->
+  <section class="section" id="services" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">Comprehensive Pet Healthcare<br>Under One Roof</h2>
+        <p class="section-sub">From routine checkups to complex surgeries — we provide the full spectrum of veterinary
+          care for dogs, cats, birds, and exotic pets.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🩺</div>
+          <h4>Wellness Check-ups</h4>
+          <p>Routine health assessments to keep your pet in optimal condition year-round.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
         </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
-          <a href="tel:7672055007" class="btn-hero-primary">📞 76720 55007</a>
-          <a href="https://wa.me/917672055007" target="_blank" class="btn-hero-secondary">💬 WhatsApp Us</a>
+        <div class="service-card">
+          <div class="service-icon">💉</div>
+          <h4>Immunisation</h4>
+          <p>Comprehensive vaccination schedules for puppies, kittens, and adult pets.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚨</div>
+          <h4>Emergency & Critical Care</h4>
+          <p>Rapid stabilisation and critical care for urgent veterinary situations.</p>
+          <a href="tel:7672055007" class="service-link">Call Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💧</div>
+          <h4>Fluid Therapy</h4>
+          <p>IV and supportive fluid management for dehydration and systemic illness.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🫁</div>
+          <h4>Gastro-Enterology</h4>
+          <p>Expert diagnosis and treatment of digestive system disorders in pets.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🐾</div>
+          <h4>Dermatology</h4>
+          <p>Skin, coat, and allergy conditions treated with targeted therapy.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🫀</div>
+          <h4>Cardiology</h4>
+          <p>Cardiac evaluation, ECG, and heart health management for your pet.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎗️</div>
+          <h4>Oncology</h4>
+          <p>Compassionate diagnosis and supportive management of pet cancers.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🫘</div>
+          <h4>Urology</h4>
+          <p>Kidney and urinary tract evaluation and treatment for pets.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🦷</div>
+          <h4>Dental Scaling</h4>
+          <p>Professional oral hygiene care to prevent dental disease in pets.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧬</div>
+          <h4>In-House Laboratory</h4>
+          <p>Blood panels, urinalysis, cytology and rapid diagnostic tests on-site.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🩸</div>
+          <h4>Blood Transfusion</h4>
+          <p>Emergency transfusion support for anaemia and critical care cases.</p>
+          <a href="tel:7672055007" class="service-link">Call Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💊</div>
+          <h4>Pain Management</h4>
+          <p>Multi-modal pain relief and palliative care to keep your pet comfortable.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👂</div>
+          <h4>ENT Examinations</h4>
+          <p>Ear, nose, and throat evaluation for common and complex conditions.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">♀️</div>
+          <h4>Gynaecology</h4>
+          <p>Reproductive health, spay/neuter, and female pet health management.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h4>Fitness Certification</h4>
+          <p>Health certificates for travel, breeding, and official documentation needs.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📞</div>
+          <h4>Tele Consultation</h4>
+          <p>Virtual vet consultations from the comfort of your home.</p>
+          <a href="https://wa.me/917672055007" class="service-link" target="_blank">Chat Now →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🥗</div>
+          <h4>Nutritional Counselling</h4>
+          <p>Customised diet plans and nutritional guidance for lifelong pet wellness.</p>
+          <a href="#appointment" class="service-link">Book Now →</a>
         </div>
       </div>
-      <div class="appt-form" id="apptForm">
-        <h3>Book Your Appointment</h3>
-        <p>Fill in your details and we'll get back to you shortly.</p>
-        <div class="form-row">
-          <div class="form-group"><label for="owner_name">Pet Owner Name *</label><input id="owner_name" type="text" placeholder="Your full name" required></div>
-          <div class="form-group"><label for="phone">Phone Number *</label><input id="phone" type="tel" placeholder="Your contact number" required></div>
+      <div style="text-align:center; margin-top: 40px;">
+        <a href="#appointment" class="btn-book"
+          style="display:inline-flex;align-items:center;gap:8px;font-size:15px;padding:13px 30px;">📅 Book Your
+          Appointment Today →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section why-bg" id="why">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">Why Pet Parents in Hyderabad<br>Trust Noah Animal Clinic</h2>
+        <p class="section-sub">A hospital that treats your pet like family — with expertise, empathy, and transparency
+          at every step.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon">👨‍⚕️</div>
+          <h4>Specialist Veterinarian</h4>
+          <p>Dr. S. Ranjith Kumar holds an M.V.Sc in Medicine — bringing specialist-level knowledge to every
+            consultation.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label for="pet_name">Pet Name</label><input id="pet_name" type="text" placeholder="Your pet's name"></div>
-          <div class="form-group"><label for="pet_type">Pet Type *</label>
-            <select id="pet_type" required>
-              <option value="">Select pet type</option>
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Bird / Parrot</option>
-              <option>Exotic Pet</option>
+        <div class="why-card">
+          <div class="icon">🔬</div>
+          <h4>Advanced Diagnostics</h4>
+          <p>In-house laboratory, diagnostic equipment and rapid test capabilities for accurate, fast results.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🏥</div>
+          <h4>15+ Medical Specialities</h4>
+          <p>From cardiology and oncology to ENT, dermatology and gynaecology — comprehensive care under one roof.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🚨</div>
+          <h4>Emergency Support</h4>
+          <p>Rapid response for critical cases. Call us for urgent care guidance and immediate stabilisation support.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🐦</div>
+          <h4>Exotic & Bird Care</h4>
+          <p>Experienced in treating parrots, small animals, reptiles and other exotic pets — not just dogs and cats.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="icon">💬</div>
+          <h4>Transparent Guidance</h4>
+          <p>We explain every diagnosis, treatment option, and cost clearly — so you always make informed decisions.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🤲</div>
+          <h4>Gentle Handling</h4>
+          <p>A stress-reduced, pet-friendly environment with a calm, gentle approach to every animal in our care.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon">📱</div>
+          <h4>Easy Access</h4>
+          <p>Book by phone, WhatsApp, or online form. Tele consultation also available from anywhere in Hyderabad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANCED CARE -->
+  <section class="section advanced-bg" id="advanced">
+    <div class="section-inner">
+      <div class="advanced-grid">
+        <div>
+          <div class="section-tag">Advanced Care</div>
+          <h2 class="section-title">Advanced Care<br>When It Matters Most</h2>
+          <p class="section-sub" style="margin-bottom: 32px;">When your pet's condition requires more than routine care,
+            Noah Animal Clinic is equipped and ready.</p>
+          <div class="advanced-list">
+            <div class="advanced-item">
+              <div class="dot">🚨</div>
+              <div>
+                <h4>Emergency Stabilisation</h4>
+                <p>Rapid triage and stabilisation for critical and life-threatening conditions in pets.</p>
+              </div>
+            </div>
+            <div class="advanced-item">
+              <div class="dot">💊</div>
+              <div>
+                <h4>Critical Care Management</h4>
+                <p>Intensive monitoring, IV therapy, and multi-drug protocols for seriously ill animals.</p>
+              </div>
+            </div>
+            <div class="advanced-item">
+              <div class="dot">🔬</div>
+              <div>
+                <h4>In-House Diagnostics</h4>
+                <p>Rapid lab results, blood work, and urinalysis without sending samples out.</p>
+              </div>
+            </div>
+            <div class="advanced-item">
+              <div class="dot">🫀</div>
+              <div>
+                <h4>Multi-System Medicine</h4>
+                <p>Specialist-level workup for cardiac, renal, hepatic, neurological and endocrine conditions.</p>
+              </div>
+            </div>
+            <div class="advanced-item">
+              <div class="dot">🩸</div>
+              <div>
+                <h4>Blood Transfusion Support</h4>
+                <p>Emergency transfusions for anaemic or critically haemorrhaging patients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="advanced-visual">
+          <h3>Open 9 AM – 9 PM<br>Every Day</h3>
+          <p>12 continuous hours of professional veterinary care, six days a week. Emergency guidance available on call.
+          </p>
+          <div class="advanced-hours">
+            <h4>📍 Clinic Location</h4>
+            <p style="font-size:15px;font-family:'Inter',sans-serif;font-weight:500;">D.No. 12/19/33/1, 1st
+              Floor,<br>Besides Rainbow Vistas Phase-1,<br>Green Hills Road, Sevalal Nagar,<br>Moosapet, Hyderabad
+              500018</p>
+          </div>
+          <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+            <a href="tel:7672055007"
+              style="padding:11px 20px;background:rgba(255,255,255,0.2);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">📞
+              76720 55007</a>
+            <a href="https://wa.me/917672055007" target="_blank"
+              style="padding:11px 20px;background:#25d366;color:#fff;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;">💬
+              WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section class="section doctor-section" id="doctor">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Our Veterinarian</div>
+        <h2 class="section-title">Meet Dr. S. Ranjith Kumar</h2>
+        <p class="section-sub">Specialist veterinarian leading Noah Animal Clinic with expertise, dedication, and
+          compassionate care for every patient.</p>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-top">
+          <div class="doctor-avatar"><img src="public/DR.jpeg" alt="Dr. S. Ranjith Kumar"></div>
+          <h3>Dr. S. Ranjith Kumar</h3>
+          <p class="qual">M.V.Sc (Internal Medicine) · PGDVEN (Endoscopy)</p>
+          <span class="doctor-badge-chip">🏥 Lead Veterinarian, Noah Animal Clinic</span>
+        </div>
+        <div class="doctor-body">
+          <p>I bring over eight years of dedicated experience in small animal clinical practice, having had the
+            privilege of working with leading veterinary hospitals across India.Throughout my career, I have developed a
+            strong foundation in clinical medicine and a thoughtful, evidence-based approach to patient care.</p>
+          <p>I am committed to delivering compassionate, high-quality treatment, with a focus on building trust with pet
+            parents while effectively managing both routine and complex medical cases.</p>
+          <div class="doctor-specialties">
+            <span class="spec-tag">Internal Medicine</span>
+            <span class="spec-tag">Emergency Care</span>
+            <span class="spec-tag">Oncology</span>
+            <span class="spec-tag">Cardiology</span>
+            <span class="spec-tag">Dermatology</span>
+            <span class="spec-tag">Gastroenterology</span>
+            <span class="spec-tag">Exotic Pets</span>
+            <span class="spec-tag">Gynaecology</span>
+          </div>
+          <div class="doctor-timings">
+            <div class="icon">🕘</div>
+            <div>
+              <p>Monday – Saturday: 9:00 AM – 9:00 PM</p>
+              <span>Emergency guidance available on call outside clinic hours</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="#appointment" class="btn-book"
+              style="flex:1;text-align:center;display:flex;align-items:center;justify-content:center;">📅 Book
+              Consultation</a>
+            <a href="tel:7672055007" class="btn-call" style="flex:1;justify-content:center;">📞 Call Clinic</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT -->
+  <section class="section appt-bg" id="appointment">
+    <div class="section-inner">
+      <div class="appt-grid">
+        <div>
+          <div class="section-tag">Book Appointment</div>
+          <h2 class="section-title">3 Simple Steps to Quality Pet Care</h2>
+          <p class="section-sub">Getting expert veterinary care for your pet at Noah Animal Clinic is quick and easy.
+          </p>
+          <div class="appt-steps">
+            <div class="appt-step">
+              <div class="step-num">1</div>
+              <div>
+                <h4>Tell Us Your Pet's Concern</h4>
+                <p>Fill the appointment form or call us directly. Share your pet's name, type, and what you're noticing.
+                </p>
+              </div>
+            </div>
+            <div class="appt-step">
+              <div class="step-num">2</div>
+              <div>
+                <h4>Choose Your Visit Type</h4>
+                <p>Walk into our Moosapet clinic or opt for a tele-consultation from the comfort of your home.</p>
+              </div>
+            </div>
+            <div class="appt-step">
+              <div class="step-num">3</div>
+              <div>
+                <h4>Get Confirmed via Call or WhatsApp</h4>
+                <p>Our team will confirm your appointment and guide you on what to bring for your pet's visit.</p>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+            <a href="tel:7672055007" class="btn-hero-primary">📞 76720 55007</a>
+            <a href="https://wa.me/917672055007" target="_blank" class="btn-hero-secondary">💬 WhatsApp Us</a>
+          </div>
+        </div>
+        <div class="appt-form" id="apptForm">
+          <h3>Book Your Appointment</h3>
+          <p>Fill in your details and we'll get back to you shortly.</p>
+          <div class="form-row">
+            <div class="form-group"><label for="owner_name">Pet Owner Name *</label><input id="owner_name" type="text"
+                placeholder="Your full name" required></div>
+            <div class="form-group"><label for="phone">Phone Number *</label><input id="phone" type="tel"
+                placeholder="Your contact number" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="pet_name">Pet Name</label><input id="pet_name" type="text"
+                placeholder="Your pet's name"></div>
+            <div class="form-group"><label for="pet_type">Pet Type *</label>
+              <select id="pet_type" required>
+                <option value="">Select pet type</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird / Parrot</option>
+                <option>Exotic Pet</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="service">Service Required *</label>
+            <select id="service" required>
+              <option value="">Select a service</option>
+              <option>Wellness Check-up</option>
+              <option>Vaccination / Immunisation</option>
+              <option>Emergency Care</option>
+              <option>Dermatology</option>
+              <option>Cardiology</option>
+              <option>Gastroenterology</option>
+              <option>Oncology</option>
+              <option>Dental Scaling</option>
+              <option>Blood Transfusion</option>
+              <option>Laboratory Tests</option>
+              <option>Tele Consultation</option>
+              <option>Nutritional Counselling</option>
               <option>Other</option>
             </select>
           </div>
+          <div class="form-row">
+            <div class="form-group"><label for="preferred_date">Preferred Date *</label><input id="preferred_date"
+                type="date" required></div>
+            <div class="form-group"><label for="preferred_time">Preferred Time *</label>
+              <select id="preferred_time" required>
+                <option>9:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 1:00 PM</option>
+                <option>2:00 PM – 4:00 PM</option>
+                <option>4:00 PM – 6:00 PM</option>
+                <option>6:00 PM – 9:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="notes">Additional Notes</label><textarea id="notes"
+              placeholder="Describe your pet's symptoms or concerns..."></textarea></div>
+          <div id="form-error" style="color:#2563eb;font-size:13px;margin-bottom:8px;display:none;"></div><button
+            id="apptSubmitBtn" class="form-submit" type="button">Submit Appointment Request →</button>
+          <div id="form-loading" style="display:none;text-align:center;padding:8px;color:#1d4ed8;font-size:13px;">⏳
+            Submitting...</div>
         </div>
-        <div class="form-group"><label for="service">Service Required *</label>
-          <select id="service" required>
-            <option value="">Select a service</option>
-            <option>Wellness Check-up</option>
-            <option>Vaccination / Immunisation</option>
-            <option>Emergency Care</option>
-            <option>Dermatology</option>
-            <option>Cardiology</option>
-            <option>Gastroenterology</option>
-            <option>Oncology</option>
-            <option>Dental Scaling</option>
-            <option>Blood Transfusion</option>
-            <option>Laboratory Tests</option>
-            <option>Tele Consultation</option>
-            <option>Nutritional Counselling</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="preferred_date">Preferred Date *</label><input id="preferred_date" type="date" required></div>
-          <div class="form-group"><label for="preferred_time">Preferred Time *</label>
-            <select id="preferred_time" required>
-              <option>9:00 AM – 11:00 AM</option>
-              <option>11:00 AM – 1:00 PM</option>
-              <option>2:00 PM – 4:00 PM</option>
-              <option>4:00 PM – 6:00 PM</option>
-              <option>6:00 PM – 9:00 PM</option>
-            </select>
+        <div class="form-success" id="formSuccess" style="background:#fff;border-radius:24px;padding:48px 36px;">
+          <div class="check">✅</div>
+          <h4>Appointment Request Received!</h4>
+          <p>Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm your appointment.</p>
+          <div class="form-quick-links">
+            <a href="tel:7672055007" class="fql-call">📞 Call Us Now</a>
+            <a href="https://wa.me/917672055007" class="fql-wa" target="_blank">💬 WhatsApp</a>
+            <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" class="fql-dir" target="_blank">📍 Get Directions</a>
           </div>
         </div>
-        <div class="form-group"><label for="notes">Additional Notes</label><textarea id="notes" placeholder="Describe your pet's symptoms or concerns..."></textarea></div>
-        <div id="form-error" style="color:#2563eb;font-size:13px;margin-bottom:8px;display:none;"></div><button id="apptSubmitBtn" class="form-submit" type="button">Submit Appointment Request →</button><div id="form-loading" style="display:none;text-align:center;padding:8px;color:#1d4ed8;font-size:13px;">⏳ Submitting...</div>
-      </div>
-      <div class="form-success" id="formSuccess" style="background:#fff;border-radius:24px;padding:48px 36px;">
-        <div class="check">✅</div>
-        <h4>Appointment Request Received!</h4>
-        <p>Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm your appointment.</p>
-        <div class="form-quick-links">
-          <a href="tel:7672055007" class="fql-call">📞 Call Us Now</a>
-          <a href="https://wa.me/917672055007" class="fql-wa" target="_blank">💬 WhatsApp</a>
-          <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" class="fql-dir" target="_blank">📍 Get Directions</a>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WELLNESS PACKAGES -->
-<section class="section" id="wellness">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Wellness Packages</div>
-      <h2 class="section-title">Preventive Care Packages for Every Life Stage</h2>
-      <p class="section-sub">Invest in your pet's long-term health with our structured wellness programmes designed by Dr. Ranjith Kumar.</p>
+  <!-- WELLNESS PACKAGES -->
+  <section class="section" id="wellness">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Wellness Packages</div>
+        <h2 class="section-title">Preventive Care Packages for Every Life Stage</h2>
+        <p class="section-sub">Invest in your pet's long-term health with our structured wellness programmes designed by
+          Dr. Ranjith Kumar.</p>
+      </div>
+      <div class="wellness-grid">
+        <div class="wellness-card">
+          <div class="icon">🐣</div>
+          <h4>Puppy / Kitten Starter Care</h4>
+          <div class="tagline">For Pets Under 1 Year</div>
+          <p>Complete first-year vaccination schedule, deworming, microchipping, health examination, nutritional
+            guidance, and wellness diary.</p>
+          <div class="price">Enquire for Pricing</div>
+          <button class="wellness-cta"
+            onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
+        </div>
+        <div class="wellness-card">
+          <div class="icon">🐕</div>
+          <h4>Adult Pet Wellness Plan</h4>
+          <div class="tagline">For Pets 1 – 7 Years</div>
+          <p>Annual health screening, booster vaccinations, dental check, weight management, blood panel, and preventive
+            parasite control.</p>
+          <div class="price">Enquire for Pricing</div>
+          <button class="wellness-cta"
+            onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
+        </div>
+        <div class="wellness-card">
+          <div class="icon">🐈</div>
+          <h4>Senior Pet Care Plan</h4>
+          <div class="tagline">For Pets 7+ Years</div>
+          <p>Advanced health screening, organ function panels, joint & cardiac assessment, pain management consultation,
+            and dietary support.</p>
+          <div class="price">Enquire for Pricing</div>
+          <button class="wellness-cta"
+            onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
+        </div>
+        <div class="wellness-card">
+          <div class="icon">🦜</div>
+          <h4>Bird & Exotic Pet Package</h4>
+          <div class="tagline">Birds, Reptiles & Exotic Animals</div>
+          <p>Species-specific health evaluation, nutrition counselling, feather/scale health check, and wellness
+            certification for exotic companions.</p>
+          <div class="price">Enquire for Pricing</div>
+          <button class="wellness-cta"
+            onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
+        </div>
+      </div>
     </div>
-    <div class="wellness-grid">
-      <div class="wellness-card">
-        <div class="icon">🐣</div>
-        <h4>Puppy / Kitten Starter Care</h4>
-        <div class="tagline">For Pets Under 1 Year</div>
-        <p>Complete first-year vaccination schedule, deworming, microchipping, health examination, nutritional guidance, and wellness diary.</p>
-        <div class="price">Enquire for Pricing</div>
-        <button class="wellness-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
-      </div>
-      <div class="wellness-card">
-        <div class="icon">🐕</div>
-        <h4>Adult Pet Wellness Plan</h4>
-        <div class="tagline">For Pets 1 – 7 Years</div>
-        <p>Annual health screening, booster vaccinations, dental check, weight management, blood panel, and preventive parasite control.</p>
-        <div class="price">Enquire for Pricing</div>
-        <button class="wellness-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
-      </div>
-      <div class="wellness-card">
-        <div class="icon">🐈</div>
-        <h4>Senior Pet Care Plan</h4>
-        <div class="tagline">For Pets 7+ Years</div>
-        <p>Advanced health screening, organ function panels, joint & cardiac assessment, pain management consultation, and dietary support.</p>
-        <div class="price">Enquire for Pricing</div>
-        <button class="wellness-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
-      </div>
-      <div class="wellness-card">
-        <div class="icon">🦜</div>
-        <h4>Bird & Exotic Pet Package</h4>
-        <div class="tagline">Birds, Reptiles & Exotic Animals</div>
-        <p>Species-specific health evaluation, nutrition counselling, feather/scale health check, and wellness certification for exotic companions.</p>
-        <div class="price">Enquire for Pricing</div>
-        <button class="wellness-cta" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Enquire Now →</button>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonials-bg" id="testimonials">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Pet Parent Reviews</div>
-      <h2 class="section-title">What Hyderabad's Pet Parents Say</h2>
-      <p class="section-sub">Real experiences from families who trust Noah Animal Clinic with their most beloved companions.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Dr. Ranjith Kumar is an exceptional veterinarian. When my Labrador had a sudden health crisis, the clinic responded with calm, expert care. Highly professional and genuinely caring team."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🐕</div>
-          <div><div class="author-name">Suresh Reddy</div><div class="author-sub">Bruno's Dad · Moosapet</div></div>
-        </div>
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-bg" id="testimonials">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Pet Parent Reviews</div>
+        <h2 class="section-title">What Hyderabad's Pet Parents Say</h2>
+        <p class="section-sub">Real experiences from families who trust Noah Animal Clinic with their most beloved
+          companions.</p>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Best pet clinic in this area of Hyderabad, no doubt. My cat had a complex skin issue that others couldn't diagnose — Dr. Ranjith identified it immediately. The facilities are clean and modern."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🐱</div>
-          <div><div class="author-name">Priya Lakshmi</div><div class="author-sub">Mitthu's Mom · Kukatpally</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"I brought my parrot for a full check-up and was impressed by how knowledgeable Dr. Ranjith is with birds. Not many vets in Hyderabad handle exotic pets with this level of expertise."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">🦜</div>
-          <div><div class="author-name">Anil Kumar</div><div class="author-sub">Mango's Dad · Balanagar</div></div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a href="https://wa.me/917672055007?text=I%20would%20like%20to%20share%20my%20experience%20with%20Noah%20Animal%20Clinic" target="_blank" class="btn-call" style="display:inline-flex;align-items:center;gap:8px;">💬 Share Your Experience</a>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="section" id="blog" style="background:var(--white);">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Pet Care Guides</div>
-      <h2 class="section-title">Helpful Advice from Dr. Ranjith Kumar</h2>
-      <p class="section-sub">Practical pet health tips and guides to help you care for your companion at home.</p>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-img">💉</div>
-        <div class="blog-body">
-          <div class="blog-cat">Vaccination · Puppies & Kittens</div>
-          <h4>When Should You Vaccinate Your Puppy or Kitten?</h4>
-          <p>Understanding the vaccination schedule for young pets — which vaccines, when, and why they matter for long-term immunity.</p>
-          <a href="#appointment" class="blog-link">Book a Vaccination →</a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">🩺</div>
-        <div class="blog-body">
-          <div class="blog-cat">Pet Health · Warning Signs</div>
-          <h4>10 Common Signs Your Pet Needs to See a Vet</h4>
-          <p>From lethargy and appetite loss to breathing changes — know when to bring your pet to the clinic versus monitoring at home.</p>
-          <a href="#appointment" class="blog-link">Book a Check-up →</a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img">☀️</div>
-        <div class="blog-body">
-          <div class="blog-cat">Seasonal Care · Hyderabad</div>
-          <h4>Summer Care Tips for Dogs and Cats in Hyderabad</h4>
-          <p>How to protect your pet from heat, dehydration, and summer skin issues during Hyderabad's hot months.</p>
-          <a href="#appointment" class="blog-link">Schedule a Wellness Visit →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section faq-bg" id="faq">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">FAQ</div>
-      <h2 class="section-title">Common Questions from Pet Parents</h2>
-      <p class="section-sub">Everything you need to know before visiting Noah Animal Clinic in Hyderabad.</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do I need a prior appointment? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">While walk-ins are welcome, booking an appointment helps us ensure Dr. Ranjith is ready for your pet without any wait. You can book via phone, WhatsApp, or the form on this page.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you provide emergency care? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. Emergency support is available at the clinic during working hours (9 AM – 9 PM). For guidance outside these hours, please call 76720 55007 directly.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you treat birds and exotic pets? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Absolutely. Dr. Ranjith Kumar has significant experience with parrots, birds, and exotic small animals. We provide specialist consultations for non-traditional pets.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you provide vaccination services? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. We offer complete vaccination and immunisation programmes for dogs, cats, birds, and puppies/kittens following evidence-based schedules.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Can I consult Dr. Ranjith online? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. Tele-consultation is available. Contact us on WhatsApp at 76720 55007 to arrange a virtual consultation with Dr. Ranjith Kumar.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What should I bring for my pet's first visit? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Please bring any previous vaccination records or medical history, your pet in a carrier or on a leash, and a list of any symptoms or concerns you've noticed. Our team will guide you through the rest.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you handle surgical cases? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. We handle soft tissue surgeries, spay/neuter procedures, gynaecological surgeries, and other interventional procedures at our facility. Please call to discuss your pet's specific case.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you have an in-house lab? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes. Noah Animal Clinic has an in-house laboratory for blood panels, urinalysis, cytology, and other rapid diagnostics so you get results quickly without external delays.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What are your clinic timings? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">The clinic is open Monday to Saturday, 9:00 AM to 9:00 PM. For urgent queries outside these hours, please reach out via the emergency number.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How can I contact the clinic quickly? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">The fastest ways to reach us are: Call 📞 76720 55007, WhatsApp 💬 76720 55007, or visit us at D.No. 12/19/33/1, Green Hills Road, Moosapet, Hyderabad 500018.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="section location-bg" id="location">
-  <div class="section-inner">
-    <div class="section-header center">
-      <div class="section-tag">Find Us</div>
-      <h2 class="section-title">Visit Noah Animal Clinic</h2>
-      <p class="section-sub">Conveniently located in Moosapet, Hyderabad — easily accessible from Kukatpally, Balanagar, Ameerpet, and surrounding areas.</p>
-    </div>
-    <div class="location-grid">
-      <div class="location-info">
-        <div class="location-detail">
-          <div class="icon">📍</div>
-          <div>
-            <h4>ADDRESS</h4>
-            <p>D.No. 12/19/33/1, First Floor, Besides Rainbow Vistas Phase-1, Green Hills Road, Sevalal Nagar, Moosapet, Hyderabad, Telangana 500018</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Dr. Ranjith Kumar is an exceptional veterinarian. When my Labrador had a sudden health crisis, the clinic
+            responded with calm, expert care. Highly professional and genuinely caring team."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🐕</div>
+            <div>
+              <div class="author-name">Suresh Reddy</div>
+              <div class="author-sub">Bruno's Dad · Moosapet</div>
+            </div>
           </div>
         </div>
-        <div class="location-detail">
-          <div class="icon">📞</div>
-          <div>
-            <h4>PHONE / EMERGENCY</h4>
-            <p><a href="tel:7672055007">76720 55007</a> — Call for appointments and emergency guidance</p>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Best pet clinic in this area of Hyderabad, no doubt. My cat had a complex skin issue that others couldn't
+            diagnose — Dr. Ranjith identified it immediately. The facilities are clean and modern."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🐱</div>
+            <div>
+              <div class="author-name">Priya Lakshmi</div>
+              <div class="author-sub">Mitthu's Mom · Kukatpally</div>
+            </div>
           </div>
         </div>
-        <div class="location-detail">
-          <div class="icon">💬</div>
-          <div>
-            <h4>WHATSAPP</h4>
-            <p><a href="https://wa.me/917672055007" target="_blank">Chat on WhatsApp: 76720 55007</a> — For bookings, queries and tele-consultation</p>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I brought my parrot for a full check-up and was impressed by how knowledgeable Dr. Ranjith is with birds.
+            Not many vets in Hyderabad handle exotic pets with this level of expertise."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🦜</div>
+            <div>
+              <div class="author-name">Anil Kumar</div>
+              <div class="author-sub">Mango's Dad · Balanagar</div>
+            </div>
           </div>
         </div>
-        <div class="location-detail">
-          <div class="icon">🕘</div>
-          <div>
-            <h4>CLINIC TIMINGS</h4>
-            <p>Monday – Saturday: 9:00 AM – 9:00 PM<br>Emergency guidance available on call</p>
-          </div>
-        </div>
-        <div class="location-detail">
-          <div class="icon">🚗</div>
-          <div>
-            <h4>HOW TO REACH</h4>
-            <p>We are located beside Rainbow Vistas Phase-1 on Green Hills Road, Moosapet — near Kukatpally main road. Parking available on-site.</p>
-          </div>
-        </div>
-        <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank" class="btn-book" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;justify-content:center;">📍 Open in Google Maps →</a>
       </div>
-      <div class="map-frame">
-        <div class="map-icon">🗺️</div>
-        <p style="text-align:center;padding:0 24px;">Noah Animal Clinic<br>Green Hills Road, Moosapet, Hyderabad</p>
-        <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank">📍 Open Google Maps</a>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="https://wa.me/917672055007?text=I%20would%20like%20to%20share%20my%20experience%20with%20Noah%20Animal%20Clinic"
+          target="_blank" class="btn-call" style="display:inline-flex;align-items:center;gap:8px;">💬 Share Your
+          Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section" id="blog" style="background:var(--white);">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Pet Care Guides</div>
+        <h2 class="section-title">Helpful Advice from Dr. Ranjith Kumar</h2>
+        <p class="section-sub">Practical pet health tips and guides to help you care for your companion at home.</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-img">💉</div>
+          <div class="blog-body">
+            <div class="blog-cat">Vaccination · Puppies & Kittens</div>
+            <h4>When Should You Vaccinate Your Puppy or Kitten?</h4>
+            <p>Understanding the vaccination schedule for young pets — which vaccines, when, and why they matter for
+              long-term immunity.</p>
+            <a href="#appointment" class="blog-link">Book a Vaccination →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-img">🩺</div>
+          <div class="blog-body">
+            <div class="blog-cat">Pet Health · Warning Signs</div>
+            <h4>10 Common Signs Your Pet Needs to See a Vet</h4>
+            <p>From lethargy and appetite loss to breathing changes — know when to bring your pet to the clinic versus
+              monitoring at home.</p>
+            <a href="#appointment" class="blog-link">Book a Check-up →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-img">☀️</div>
+          <div class="blog-body">
+            <div class="blog-cat">Seasonal Care · Hyderabad</div>
+            <h4>Summer Care Tips for Dogs and Cats in Hyderabad</h4>
+            <p>How to protect your pet from heat, dehydration, and summer skin issues during Hyderabad's hot months.</p>
+            <a href="#appointment" class="blog-link">Schedule a Wellness Visit →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-bg" id="faq">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Common Questions from Pet Parents</h2>
+        <p class="section-sub">Everything you need to know before visiting Noah Animal Clinic in Hyderabad.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do I need a prior appointment? <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">While walk-ins are welcome, booking an appointment helps us ensure Dr. Ranjith is ready for
+            your pet without any wait. You can book via phone, WhatsApp, or the form on this page.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you provide emergency care? <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Yes. Emergency support is available at the clinic during working hours (9 AM – 9 PM). For
+            guidance outside these hours, please call 76720 55007 directly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you treat birds and exotic pets? <span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Absolutely. Dr. Ranjith Kumar has significant experience with parrots, birds, and exotic
+            small animals. We provide specialist consultations for non-traditional pets.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you provide vaccination services? <span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes. We offer complete vaccination and immunisation programmes for dogs, cats, birds, and
+            puppies/kittens following evidence-based schedules.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can I consult Dr. Ranjith online? <span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes. Tele-consultation is available. Contact us on WhatsApp at 76720 55007 to arrange a
+            virtual consultation with Dr. Ranjith Kumar.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What should I bring for my pet's first visit? <span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Please bring any previous vaccination records or medical history, your pet in a carrier or
+            on a leash, and a list of any symptoms or concerns you've noticed. Our team will guide you through the rest.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you handle surgical cases? <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Yes. We handle soft tissue surgeries, spay/neuter procedures, gynaecological surgeries, and
+            other interventional procedures at our facility. Please call to discuss your pet's specific case.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you have an in-house lab? <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Yes. Noah Animal Clinic has an in-house laboratory for blood panels, urinalysis, cytology,
+            and other rapid diagnostics so you get results quickly without external delays.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What are your clinic timings? <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">The clinic is open Monday to Saturday, 9:00 AM to 9:00 PM. For urgent queries outside these
+            hours, please reach out via the emergency number.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How can I contact the clinic quickly? <span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">The fastest ways to reach us are: Call 📞 76720 55007, WhatsApp 💬 76720 55007, or visit us
+            at D.No. 12/19/33/1, Green Hills Road, Moosapet, Hyderabad 500018.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section location-bg" id="location">
+    <div class="section-inner">
+      <div class="section-header center">
+        <div class="section-tag">Find Us</div>
+        <h2 class="section-title">Visit Noah Animal Clinic</h2>
+        <p class="section-sub">Conveniently located in Moosapet, Hyderabad — easily accessible from Kukatpally,
+          Balanagar, Ameerpet, and surrounding areas.</p>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="location-detail">
+            <div class="icon">📍</div>
+            <div>
+              <h4>ADDRESS</h4>
+              <p>D.No. 12/19/33/1, First Floor, Besides Rainbow Vistas Phase-1, Green Hills Road, Sevalal Nagar,
+                Moosapet, Hyderabad, Telangana 500018</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">📞</div>
+            <div>
+              <h4>PHONE / EMERGENCY</h4>
+              <p><a href="tel:7672055007">76720 55007</a> — Call for appointments and emergency guidance</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">💬</div>
+            <div>
+              <h4>WHATSAPP</h4>
+              <p><a href="https://wa.me/917672055007" target="_blank">Chat on WhatsApp: 76720 55007</a> — For bookings,
+                queries and tele-consultation</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">🕘</div>
+            <div>
+              <h4>CLINIC TIMINGS</h4>
+              <p>Monday – Saturday: 9:00 AM – 9:00 PM<br>Emergency guidance available on call</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">🚗</div>
+            <div>
+              <h4>HOW TO REACH</h4>
+              <p>We are located beside Rainbow Vistas Phase-1 on Green Hills Road, Moosapet — near Kukatpally main road.
+                Parking available on-site.</p>
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank" class="btn-book"
+            style="display:inline-flex;align-items:center;gap:8px;font-size:14px;justify-content:center;">📍 Open in
+            Google Maps →</a>
+        </div>
+        <div class="map-frame">
+          <div class="map-icon">🗺️</div>
+          <p style="text-align:center;padding:0 24px;">Noah Animal Clinic<br>Green Hills Road, Moosapet, Hyderabad</p>
+          <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank">📍 Open Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div style="max-width:700px;margin:0 auto;">
+      <div class="section-tag"
+        style="background:rgba(168,237,223,0.2);color:#a8eddf;display:inline-block;margin-bottom:20px;">Your Pet
+        Deserves Expert Care</div>
+      <h2>"Your pet deserves calm, expert, and timely veterinary care."</h2>
+      <p>Whether it's a routine check-up, vaccination, or an urgent concern — Noah Animal Clinic in Hyderabad is here
+        for your pet. Book your appointment today.</p>
+      <div class="final-ctas">
+        <a href="#appointment" class="btn-final btn-final-primary">📅 Book Appointment</a>
+        <a href="https://wa.me/917672055007" target="_blank" class="btn-final btn-final-wa">💬 WhatsApp Us</a>
+        <a href="tel:7672055007" class="btn-final btn-final-call">📞 76720 55007</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- FINAL CTA -->
-<div class="final-cta">
-  <div style="max-width:700px;margin:0 auto;">
-    <div class="section-tag" style="background:rgba(168,237,223,0.2);color:#a8eddf;display:inline-block;margin-bottom:20px;">Your Pet Deserves Expert Care</div>
-    <h2>"Your pet deserves calm, expert, and timely veterinary care."</h2>
-    <p>Whether it's a routine check-up, vaccination, or an urgent concern — Noah Animal Clinic in Hyderabad is here for your pet. Book your appointment today.</p>
-    <div class="final-ctas">
-      <a href="#appointment" class="btn-final btn-final-primary">📅 Book Appointment</a>
-      <a href="https://wa.me/917672055007" target="_blank" class="btn-final btn-final-wa">💬 WhatsApp Us</a>
-      <a href="tel:7672055007" class="btn-final btn-final-call">📞 76720 55007</a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo" style="margin-bottom:12px;">
-        <div class="logo-icon">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-            <g fill="currentColor">
-              <circle cx="18" cy="16" r="5" />
-              <circle cx="26" cy="10" r="5" />
-              <circle cx="38" cy="10" r="5" />
-              <circle cx="46" cy="16" r="5" />
-              <path d="M18 34c4-8 22-8 26 0 3 6-4 18-14 18s-19-12-12-18z" />
-            </g>
-          </svg>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:12px;">
+          <div class="logo-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+              <g fill="currentColor">
+                <circle cx="18" cy="16" r="5" />
+                <circle cx="26" cy="10" r="5" />
+                <circle cx="38" cy="10" r="5" />
+                <circle cx="46" cy="16" r="5" />
+                <path d="M18 34c4-8 22-8 26 0 3 6-4 18-14 18s-19-12-12-18z" />
+              </g>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <h1 style="color:#fff;font-size:18px;">Noah Animal Clinic</h1>
+            <p style="color:#a8eddf;font-size:11px;">Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine)
+              PGDVEN (Endoscopy)</p>
+          </div>
         </div>
-        <div class="logo-text">
-          <h1 style="color:#fff;font-size:18px;">Noah Animal Clinic</h1>
-          <p style="color:#a8eddf;font-size:11px;">Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine)
-PGDVEN (Endoscopy)</p>
+        <p>Premium veterinary care for dogs, cats, birds, and exotic pets in Moosapet, Hyderabad. Advanced diagnostics,
+          specialist medicine, and compassionate care — under one roof.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/917672055007" class="social-icon" target="_blank">💬</a>
+          <a href="tel:7672055007" class="social-icon">📞</a>
+          <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" class="social-icon" target="_blank">📍</a>
         </div>
       </div>
-      <p>Premium veterinary care for dogs, cats, birds, and exotic pets in Moosapet, Hyderabad. Advanced diagnostics, specialist medicine, and compassionate care — under one roof.</p>
-      <div class="footer-social">
-        <a href="https://wa.me/917672055007" class="social-icon" target="_blank">💬</a>
-        <a href="tel:7672055007" class="social-icon">📞</a>
-        <a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" class="social-icon" target="_blank">📍</a>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctor">Our Doctor</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#wellness">Wellness Packages</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#location">Contact & Location</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Wellness Check-ups</a></li>
+          <li><a href="#services">Vaccination</a></li>
+          <li><a href="#services">Emergency Care</a></li>
+          <li><a href="#services">Cardiology</a></li>
+          <li><a href="#services">Oncology</a></li>
+          <li><a href="#services">Dermatology</a></li>
+          <li><a href="#services">Lab & Diagnostics</a></li>
+          <li><a href="#services">Tele Consultation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:7672055007">📞 76720 55007</a></li>
+          <li><a href="https://wa.me/917672055007" target="_blank">💬 WhatsApp Us</a></li>
+          <li><a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank">📍 Get Directions</a></li>
+          <li><a href="#appointment">📅 Book Online</a></li>
+        </ul>
+        <div style="margin-top: 16px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5);">
+          D.No. 12/19/33/1, 1st Floor,<br>
+          Green Hills Road, Moosapet,<br>
+          Hyderabad, Telangana 500018<br><br>
+          Mon–Sat: 9 AM – 9 PM
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h5>Quick Links</h5>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#doctor">Our Doctor</a></li>
-        <li><a href="#appointment">Book Appointment</a></li>
-        <li><a href="#wellness">Wellness Packages</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#location">Contact & Location</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Services</h5>
-      <ul>
-        <li><a href="#services">Wellness Check-ups</a></li>
-        <li><a href="#services">Vaccination</a></li>
-        <li><a href="#services">Emergency Care</a></li>
-        <li><a href="#services">Cardiology</a></li>
-        <li><a href="#services">Oncology</a></li>
-        <li><a href="#services">Dermatology</a></li>
-        <li><a href="#services">Lab & Diagnostics</a></li>
-        <li><a href="#services">Tele Consultation</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <ul>
-        <li><a href="tel:7672055007">📞 76720 55007</a></li>
-        <li><a href="https://wa.me/917672055007" target="_blank">💬 WhatsApp Us</a></li>
-        <li><a href="https://maps.app.goo.gl/hrP6hDE2jXR2KsNd8" target="_blank">📍 Get Directions</a></li>
-        <li><a href="#appointment">📅 Book Online</a></li>
-      </ul>
-      <div style="margin-top: 16px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.5);">
-        D.No. 12/19/33/1, 1st Floor,<br>
-        Green Hills Road, Moosapet,<br>
-        Hyderabad, Telangana 500018<br><br>
-        Mon–Sat: 9 AM – 9 PM
+    <div class="footer-bottom">
+      <span>© 2025 Noah Animal Clinic, Hyderabad. All Rights Reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Noah Animal Clinic, Hyderabad. All Rights Reserved.</span>
-    <div>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- FLOATING BUTTONS -->
-<a href="https://wa.me/917672055007" class="float-wa" target="_blank" title="WhatsApp Noah Animal Clinic">💬</a>
-<a href="#appointment" class="float-book">📅 Book Now</a>
+  <!-- FLOATING BUTTONS -->
+  <a href="https://wa.me/917672055007" class="float-wa" target="_blank" title="WhatsApp Noah Animal Clinic">💬</a>
+  <a href="#appointment" class="float-book">📅 Book Now</a>
 
-<script>
-window.addEventListener('scroll', function() {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
-});
+  <script>
+    window.addEventListener('scroll', function () {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
 
-function openNav() { document.getElementById('mobileNav').classList.add('open'); }
-function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
+    function openNav() { document.getElementById('mobileNav').classList.add('open'); }
+    function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
-function toggleFaq(el) {
-  var item = el.parentElement;
-  item.classList.toggle('open');
-}
-
-// handled by event listener below
-
-// Animate on scroll
-var animItems = document.querySelectorAll('.service-card, .why-card, .advanced-item, .wellness-card, .testimonial-card, .blog-card, .faq-item, .location-detail');
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
+    function toggleFaq(el) {
+      var item = el.parentElement;
+      item.classList.toggle('open');
     }
-  });
-}, { threshold: 0.1 });
-animItems.forEach(function(el) {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
-</script> 
-  
+
+    // handled by event listener below
+
+    // Animate on scroll
+    var animItems = document.querySelectorAll('.service-card, .why-card, .advanced-item, .wellness-card, .testimonial-card, .blog-card, .faq-item, .location-detail');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    animItems.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
 
 
 
-  
-  
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('apptSubmitBtn');
-  if (!btn) return;
-  btn.addEventListener('click', async function() {
-    var f = function(id){ return (document.getElementById(id)||{}).value||''; };
-    var owner_name = f('owner_name').trim();
-    var phone = f('phone').trim();
-    var pet_name = f('pet_name').trim();
-    var pet_type = f('pet_type');
-    var service = f('service');
-    var preferred_date = f('preferred_date');
-    var preferred_time = f('preferred_time');
-    var notes = f('notes').trim();
-    var errDiv = document.getElementById('form-error');
-    var loadDiv = document.getElementById('form-loading');
-    if(!owner_name||!phone||!pet_type||!service||!preferred_date||!preferred_time){
-      errDiv.textContent='Please fill in all required (*) fields'; errDiv.style.display='block'; return;
-    }
-    if(!/^\d{10}$/.test(phone.replace(/\D/g,''))){
-      errDiv.textContent='Enter a valid 10-digit mobile number'; errDiv.style.display='block'; return;
-    }
-    errDiv.style.display='none';
-    btn.disabled=true; btn.textContent='Submitting\u2026'; loadDiv.style.display='block';
-    try {
-      var r=await fetch('/api/appointments',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({owner_name,phone,pet_name,pet_type,service,preferred_date,preferred_time,notes})});
-      var d=await r.json();
-      if(r.ok&&d.success){
-        document.getElementById('apptForm').style.display='none';
-        document.getElementById('formSuccess').style.display='block';
-      } else {
-        var msg=d.error||(d.errors?Object.values(d.errors).join(', '):'Submission failed. Try again.');
-        errDiv.textContent=msg; errDiv.style.display='block';
-        btn.disabled=false; btn.textContent='Submit Appointment Request \u2192';
-      }
-    } catch(e){
-      errDiv.textContent='Network error. Please check your connection.'; errDiv.style.display='block';
-      btn.disabled=false; btn.textContent='Submit Appointment Request \u2192';
-    } finally{ loadDiv.style.display='none'; }
-  });
-});
-</script>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('apptSubmitBtn');
+      if (!btn) return;
+      btn.addEventListener('click', async function () {
+        var f = function (id) { return (document.getElementById(id) || {}).value || ''; };
+        var owner_name = f('owner_name').trim();
+        var phone = f('phone').trim();
+        var pet_name = f('pet_name').trim();
+        var pet_type = f('pet_type');
+        var service = f('service');
+        var preferred_date = f('preferred_date');
+        var preferred_time = f('preferred_time');
+        var notes = f('notes').trim();
+        var errDiv = document.getElementById('form-error');
+        var loadDiv = document.getElementById('form-loading');
+        if (!owner_name || !phone || !pet_type || !service || !preferred_date || !preferred_time) {
+          errDiv.textContent = 'Please fill in all required (*) fields'; errDiv.style.display = 'block'; return;
+        }
+        if (!/^\d{10}$/.test(phone.replace(/\D/g, ''))) {
+          errDiv.textContent = 'Enter a valid 10-digit mobile number'; errDiv.style.display = 'block'; return;
+        }
+        errDiv.style.display = 'none';
+        btn.disabled = true; btn.textContent = 'Submitting\u2026'; loadDiv.style.display = 'block';
+        try {
+          var r = await fetch('/api/appointments', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ owner_name, phone, pet_name, pet_type, service, preferred_date, preferred_time, notes })
+          });
+          var d = await r.json();
+          if (r.ok && d.success) {
+            document.getElementById('apptForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+          } else {
+            var msg = d.error || (d.errors ? Object.values(d.errors).join(', ') : 'Submission failed. Try again.');
+            errDiv.textContent = msg; errDiv.style.display = 'block';
+            btn.disabled = false; btn.textContent = 'Submit Appointment Request \u2192';
+          }
+        } catch (e) {
+          errDiv.textContent = 'Network error. Please check your connection.'; errDiv.style.display = 'block';
+          btn.disabled = false; btn.textContent = 'Submit Appointment Request \u2192';
+        } finally { loadDiv.style.display = 'none'; }
+      });
+    });
+  </script>
 
 </body>
+
 </html>
