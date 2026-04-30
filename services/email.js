@@ -1,16 +1,18 @@
 // services/email.js
-// Email notifications for appointment events (via Resend HTTP API)
+// Email notifications for appointment events (via Brevo HTTP API)
 
 const CLINIC_NAME = "Noah Animal Clinic";
 const CLINIC_PHONE = "76720 55007";
 const CLINIC_EMAIL = process.env.CLINIC_EMAIL; // clinic's email for admin notifications
+const SENDER_EMAIL = process.env.SENDER_EMAIL || CLINIC_EMAIL; // email used as sender
 
 /**
- * Send an email via Resend HTTP API (works on Vercel — no SMTP needed)
+ * Send an email via Brevo (formerly Sendinblue) HTTP API
+ * Free plan: 300 emails/day, no domain verification needed
  */
 async function sendEmail(to, subject, html) {
-  if (!process.env.RESEND_API_KEY) {
-    console.warn("[Email] RESEND_API_KEY not configured, skipping email.");
+  if (!process.env.BREVO_API_KEY) {
+    console.warn("[Email] BREVO_API_KEY not configured, skipping email.");
     return null;
   }
 
@@ -20,26 +22,26 @@ async function sendEmail(to, subject, html) {
   }
 
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "api-key": process.env.BREVO_API_KEY,
       },
       body: JSON.stringify({
-        from: `${CLINIC_NAME} <onboarding@resend.dev>`,
-        to,
+        sender: { name: CLINIC_NAME, email: SENDER_EMAIL },
+        to: [{ email: to }],
         subject,
-        html,
+        htmlContent: html,
       }),
     });
 
     const data = await res.json();
     if (!res.ok) {
-      console.error("[Email] Resend API error:", data);
+      console.error("[Email] Brevo API error:", data);
       throw new Error(data.message || "Failed to send email");
     }
-    console.log(`[Email] Sent to ${to}: ${data.id}`);
+    console.log(`[Email] Sent to ${to}: messageId=${data.messageId}`);
     return data;
   } catch (err) {
     console.error(`[Email] Failed to send to ${to}:`, err.message);
