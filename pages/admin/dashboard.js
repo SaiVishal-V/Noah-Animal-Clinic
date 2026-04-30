@@ -291,6 +291,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
             <thead>
               <tr>
                 <th>Patient</th>
+                <th>Contact</th>
                 <th>Pet</th>
                 <th>Service</th>
                 <th>Requested Slot</th>
@@ -301,10 +302,10 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
             </thead>
             <tbody>
               {loading ? (
-                <tr><td colSpan={7} className="loading-cell">⏳ Loading appointments...</td></tr>
+                <tr><td colSpan={8} className="loading-cell">⏳ Loading appointments...</td></tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={7}>
+                  <td colSpan={8}>
                     <div className="empty-state">
                       <div className="empty-icon">🐾</div>
                       <div>No {filter !== "all" ? filter : ""} appointments found</div>
@@ -321,16 +322,18 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                     <tr key={apt.id}>
                       <td>
                         <div className="owner-name">{apt.owner_name}</div>
-                        <div className="owner-phone">📞 {apt.phone}</div>
-                        {apt.owner_email && (
-                          <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
-                            ✉️ {apt.owner_email}
-                          </div>
-                        )}
                         {apt.notes && (
                           <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 3, maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={apt.notes}>
                             💬 {apt.notes}
                           </div>
+                        )}
+                      </td>
+                      <td>
+                        <div className="owner-phone">📞 {apt.phone}</div>
+                        {apt.owner_email ? (
+                          <div style={{ fontSize: 12, color: "#64748b", marginTop: 3 }}>✉️ {apt.owner_email}</div>
+                        ) : (
+                          <div style={{ fontSize: 11, color: "#cbd5e1", marginTop: 3 }}>No email</div>
                         )}
                       </td>
                       <td>
