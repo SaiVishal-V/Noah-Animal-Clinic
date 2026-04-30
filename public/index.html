@@ -16,16 +16,17 @@
       --teal: #2563eb;
       --teal-light: #60a5fa;
       --teal-dark: #1d4ed8;
-      --teal-pale: rgba(250, 204, 21, 0.14);
-      --navy: #1d4ed8;
-      --gold: #facc15;
-      --cream: #FFFFFF;
+      --teal-pale: rgba(37, 99, 235, 0.08);
+      --navy: #1e3a8a;
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --cream: #f8faff;
       --white: #FFFFFF;
-      --text: #1e3a8a;
-      --muted: #3b82f6;
+      --text: #0f172a;
+      --muted: #334155;
       --border: #dbeafe;
       --shadow: rgba(37, 99, 235, 0.16);
-      --emergency: #2563eb;
+      --emergency: #1d4ed8;
     }
 
     * {
@@ -146,7 +147,7 @@
 
     .logo-text p {
       font-size: 11px;
-      color: var(--teal);
+      color: var(--muted);
       font-weight: 500;
       letter-spacing: 0.5px;
     }
@@ -160,7 +161,7 @@
       padding: 8px 14px;
       font-size: 13.5px;
       font-weight: 500;
-      color: var(--muted);
+      color: var(--text);
       text-decoration: none;
       border-radius: 8px;
       transition: all 0.2s;
@@ -227,7 +228,7 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%);
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #1e40af 100%);
       position: relative;
       overflow: hidden;
       padding: 80px 24px 60px;
@@ -280,12 +281,12 @@
 
     .hero h2 em {
       font-style: italic;
-      color: #facc15;
+      color: #fbbf24;
     }
 
     .hero p {
       font-size: 17px;
-      color: #1e3a8a;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.7;
       margin-bottom: 36px;
     }
@@ -403,13 +404,13 @@
     .hero-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
-      color: #000;
+      color: var(--text);
       margin-bottom: 8px;
     }
 
     .hero-card p {
       font-size: 14px;
-      color: #000;
+      color: var(--muted);
       margin-bottom: 24px;
     }
 
@@ -435,7 +436,7 @@
 
     .hero-stat .lbl {
       font-size: 11px;
-      color: var(--muted);
+      color: #475569;
       font-weight: 500;
     }
 
@@ -480,7 +481,7 @@
 
     .trust-label {
       font-size: 13px;
-      color: var(--muted);
+      color: #475569;
       margin-top: 4px;
       font-weight: 500;
     }
@@ -748,14 +749,14 @@
 
     .why-card:hover {
       background: #fff;
-      border-color: var(--gold);
+      border-color: var(--teal);
       transform: translateY(-3px);
     }
 
     .why-card .icon {
       width: 50px;
       height: 50px;
-      background: rgba(250, 204, 21, 0.22);
+      background: rgba(37, 99, 235, 0.1);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -778,7 +779,7 @@
     }
 
     .why-bg .section-tag {
-      background: rgba(250, 204, 21, 0.22);
+      background: rgba(37, 99, 235, 0.1);
       color: var(--teal-dark);
     }
 
@@ -931,7 +932,7 @@
       justify-content: center;
       font-size: 52px;
       margin: 0 auto 24px;
-      border: 4px solid rgba(250, 204, 21, 0.45);
+      border: 4px solid rgba(37, 99, 235, 0.35);
     }
 
     .doctor-top h3 {
@@ -948,7 +949,7 @@
 
     .doctor-badge-chip {
       display: inline-block;
-      background: rgba(250, 204, 21, 0.22);
+      background: rgba(37, 99, 235, 0.1);
       color: var(--navy);
       padding: 5px 14px;
       border-radius: 50px;
@@ -1020,7 +1021,7 @@
     }
 
     .appt-bg .section-tag {
-      background: rgba(250, 204, 21, 0.22);
+      background: rgba(37, 99, 235, 0.1);
       color: var(--teal-dark);
     }
 
@@ -1053,7 +1054,7 @@
     .step-num {
       width: 36px;
       height: 36px;
-      background: rgba(250, 204, 21, 0.25);
+      background: rgba(37, 99, 235, 0.12);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1280,7 +1281,7 @@
     .wellness-cta {
       width: 100%;
       padding: 10px;
-      background: rgba(250, 204, 21, 0.18);
+      background: rgba(37, 99, 235, 0.1);
       color: var(--navy);
       border: 1.5px solid var(--teal);
       border-radius: 10px;
@@ -1332,7 +1333,7 @@
     }
 
     .stars {
-      color: #f0a500;
+      color: #f59e0b;
       font-size: 14px;
       margin-bottom: 14px;
     }
@@ -1735,7 +1736,7 @@
     }
 
     .footer-col li a:hover {
-      color: #facc15;
+      color: #fbbf24;
     }
 
     .footer-bottom {
@@ -1758,7 +1759,7 @@
     }
 
     .footer-bottom a:hover {
-      color: #facc15;
+      color: #fbbf24;
     }
 
     /* FLOATING BUTTONS */
@@ -1979,11 +1980,11 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #2563eb 0%, #ffffff 46%, #d4a900 100%) !important;
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #1e40af 100%) !important;
     }
 
     .hero h2 em {
-      color: var(--gold) !important;
+      color: #fbbf24 !important;
       font-style: normal;
     }
 
@@ -2000,7 +2001,7 @@
     }
 
     .section-tag {
-      background: rgba(250, 204, 21, 0.22) !important;
+      background: rgba(37, 99, 235, 0.1) !important;
       color: var(--teal-dark) !important;
     }
 
@@ -2052,9 +2053,9 @@
     .btn-call:hover,
     .btn-hero-secondary:hover,
     .wellness-cta:hover {
-      background: var(--gold) !important;
-      color: var(--navy) !important;
-      border-color: var(--gold) !important;
+      background: #fbbf24 !important;
+      color: #0f172a !important;
+      border-color: #fbbf24 !important;
     }
 
     .why-bg,
@@ -2066,9 +2067,12 @@
       background: #fff !important;
     }
 
-    .final-cta,
+    .final-cta {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%) !important;
+    }
+
     footer {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%) !important;
+      background: #0f172a !important;
     }
 
     .why-bg .section-title,
@@ -2081,7 +2085,7 @@
     .doctor-top h3,
     .doctor-top .qual,
     .doctor-badge-chip {
-      color: var(--navy) !important;
+      color: var(--text) !important;
     }
 
     .final-cta h2,
@@ -2111,6 +2115,7 @@
 
     .doctor-body p {
       line-height: 1.75;
+      color: var(--muted) !important;
     }
 
     .doctor-top .qual {
@@ -2118,8 +2123,8 @@
     }
 
     .spec-tag {
-      background: rgba(250, 204, 21, 0.18) !important;
-      color: var(--text) !important;
+      background: rgba(37, 99, 235, 0.1) !important;
+      color: var(--teal-dark) !important;
     }
 
     .doctor-timings {
@@ -2131,13 +2136,51 @@
     }
 
     a[href*="wa.me"] {
-      background: var(--gold) !important;
-      color: var(--text) !important;
-      border-color: var(--gold) !important;
+      background: #25d366 !important;
+      color: #fff !important;
+      border-color: #25d366 !important;
     }
 
     a[href*="wa.me"]:hover {
-      background: #ffdf66 !important;
+      background: #1da851 !important;
+    }
+
+    .hero-tag {
+      background: rgba(251, 191, 36, 0.25) !important;
+      color: #fbbf24 !important;
+    }
+
+    .why-card .icon {
+      background: rgba(37, 99, 235, 0.1) !important;
+    }
+
+    .step-num {
+      background: rgba(37, 99, 235, 0.12) !important;
+      color: var(--teal-dark) !important;
+    }
+
+    .about-feature {
+      background: rgba(37, 99, 235, 0.06) !important;
+    }
+
+    .hero-animal-icon {
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(251,191,36,0.25)) !important;
+    }
+
+    .advanced-visual {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb) !important;
+    }
+
+    .mobile-nav {
+      background: rgba(15, 23, 42, 0.97) !important;
+    }
+
+    .testimonial-card::before {
+      color: rgba(37, 99, 235, 0.1) !important;
+    }
+
+    .stars {
+      color: #f59e0b !important;
     }
   </style>
 </head>
@@ -2164,7 +2207,7 @@
     <a href="#wellness" onclick="closeNav()">Wellness Packages</a>
     <a href="#faq" onclick="closeNav()">FAQ</a>
     <a href="#location" onclick="closeNav()">Location</a>
-    <a href="tel:7672055007" style="color:#facc15; margin-top: 16px;">📞 76720 55007</a>
+    <a href="tel:7672055007" style="color:#fbbf24; margin-top: 16px;">📞 76720 55007</a>
   </div>
 
   <!-- HEADER -->
@@ -2718,7 +2761,8 @@
         <div class="form-success" id="formSuccess" style="background:#fff;border-radius:24px;padding:48px 36px;">
           <div class="check">✅</div>
           <h4>Appointment Request Received!</h4>
-          <p id="formSuccessMsg">Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm your appointment.</p>
+          <p id="formSuccessMsg">Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm
+            your appointment.</p>
           <div class="form-quick-links">
             <a href="tel:7672055007" class="fql-call">📞 Call Us Now</a>
             <a href="https://wa.me/917672055007" class="fql-wa" target="_blank">💬 WhatsApp</a>
@@ -3020,7 +3064,7 @@
   <div class="final-cta">
     <div style="max-width:700px;margin:0 auto;">
       <div class="section-tag"
-        style="background:rgba(250,204,21,0.2);color:#facc15;display:inline-block;margin-bottom:20px;">Your Pet
+        style="background:rgba(251,191,36,0.2);color:#fbbf24;display:inline-block;margin-bottom:20px;">Your Pet
         Deserves Expert Care</div>
       <h2>"Your pet deserves calm, expert, and timely veterinary care."</h2>
       <p>Whether it's a routine check-up, vaccination, or an urgent concern — Noah Animal Clinic in Hyderabad is here
@@ -3051,7 +3095,7 @@
           </div>
           <div class="logo-text">
             <h1 style="color:#fff;font-size:18px;">Noah Animal Clinic</h1>
-            <p style="color:#facc15;font-size:11px;">Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine)
+            <p style="color:#fbbf24;font-size:11px;">Dr. S. Ranjith Kumar · M.V.Sc (Internal Medicine)
               PGDVEN (Endoscopy)</p>
           </div>
         </div>
