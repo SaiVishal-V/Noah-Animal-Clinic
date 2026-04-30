@@ -1867,7 +1867,8 @@
       }
 
       .hero-card {
-        display: none;
+        max-width: 480px;
+        margin: 0 auto;
       }
 
       .trust-inner {
@@ -1928,7 +1929,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(10, 60, 53, 0.97);
+      background: rgba(29, 78, 216, 0.98);
       z-index: 2000;
       padding: 80px 32px;
       flex-direction: column;
@@ -1987,8 +1988,8 @@
       font-style: normal;
     }
 
+    /* Section alternating backgrounds: white / light-blue / light-gold */
     .section,
-    .trust-bar,
     .doctor-section,
     .advanced-bg,
     .faq-bg,
@@ -1997,6 +1998,59 @@
     #services,
     #why {
       background: #fff !important;
+    }
+
+    /* Trust bar: deep blue band */
+    .trust-bar {
+      background: #1d4ed8 !important;
+      border-bottom: none !important;
+    }
+    .trust-num {
+      color: #facc15 !important;
+    }
+    .trust-label {
+      color: rgba(255, 255, 255, 0.82) !important;
+    }
+    .trust-item {
+      border-right-color: rgba(255, 255, 255, 0.15) !important;
+    }
+    .trust-item:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* Services: light blue tint */
+    #services {
+      background: #eff6ff !important;
+    }
+
+    /* Advanced Care: light gold tint */
+    #advanced {
+      background: rgba(250, 204, 21, 0.07) !important;
+    }
+
+    /* Appointment: light blue tint */
+    #appointment {
+      background: #eff6ff !important;
+    }
+
+    /* Testimonials: light gold tint */
+    #testimonials {
+      background: rgba(250, 204, 21, 0.07) !important;
+    }
+
+    /* Blog: light blue tint */
+    #blog {
+      background: #eff6ff !important;
+    }
+
+    /* FAQ: light gold tint */
+    #faq {
+      background: rgba(250, 204, 21, 0.06) !important;
+    }
+
+    /* Location: light blue tint */
+    #location {
+      background: #eff6ff !important;
     }
 
     .section-tag {
@@ -2066,9 +2120,12 @@
       background: #fff !important;
     }
 
-    .final-cta,
+    .final-cta {
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #1e40af 100%) !important;
+    }
+
     footer {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%) !important;
+      background: #0f172a !important;
     }
 
     .why-bg .section-title,
@@ -2130,14 +2187,296 @@
       color: var(--text) !important;
     }
 
+    /* ===== BLUE · WHITE · YELLOW ACCENT POLISH ===== */
+
+    /* Section tags: blue-tinted by default */
+    .section-tag {
+      background: rgba(37, 99, 235, 0.1) !important;
+      color: #1d4ed8 !important;
+      border: 1px solid rgba(37, 99, 235, 0.18) !important;
+    }
+
+    /* Gold section tags for yellow-bg sections */
+    #why .section-tag,
+    #appointment .section-tag,
+    #testimonials .section-tag,
+    #wellness .section-tag,
+    #advanced .section-tag,
+    #faq .section-tag {
+      background: rgba(250, 204, 21, 0.22) !important;
+      color: #92400e !important;
+      border: 1px solid rgba(250, 204, 21, 0.45) !important;
+    }
+
+    /* Service cards on blue background */
+    #services .service-card {
+      background: #fff !important;
+    }
+
+    /* Why cards: subtle yellow tint */
+    .why-card {
+      background: #fefce8 !important;
+    }
+
+    .why-card:hover {
+      background: #fef9c3 !important;
+      border-color: #facc15 !important;
+    }
+
+    .why-card .icon {
+      background: rgba(250, 204, 21, 0.3) !important;
+    }
+
+    /* Step numbers: yellow circle */
+    .step-num {
+      background: #facc15 !important;
+      color: #1e3a8a !important;
+    }
+
+    /* Appointment form on blue bg */
+    .appt-form,
+    .appt-step {
+      background: #fff !important;
+    }
+
+    /* Testimonial cards on gold bg */
+    .testimonial-card {
+      background: #fff !important;
+    }
+
+    /* Blog cards on blue bg */
+    .blog-card {
+      background: #fff !important;
+    }
+
+    /* Location details on blue bg */
+    .location-detail,
+    .map-frame {
+      background: #fff !important;
+    }
+
+    .location-detail:hover {
+      background: #eff6ff !important;
+      border-color: #2563eb !important;
+    }
+
+    /* Spec tags: blue tint */
+    .spec-tag {
+      background: rgba(37, 99, 235, 0.1) !important;
+      color: #1d4ed8 !important;
+    }
+
+    /* Doctor timings */
+    .doctor-timings {
+      background: rgba(37, 99, 235, 0.08) !important;
+    }
+
+    /* Hero tag: gold outline */
+    .hero-tag {
+      background: rgba(250, 204, 21, 0.22) !important;
+      border: 1px solid rgba(250, 204, 21, 0.5) !important;
+      color: #fff !important;
+    }
+
+    /* Hero stat numbers: gold */
+    .hero-stat .num {
+      color: #facc15 !important;
+    }
+
+    /* FAQ item hover: gold */
+    .faq-item:hover {
+      border-color: #facc15 !important;
+    }
+
+    .faq-item.open .faq-toggle {
+      background: #2563eb !important;
+    }
+
+    /* Final CTA tag */
+    .final-cta .section-tag {
+      background: rgba(250, 204, 21, 0.25) !important;
+      color: #facc15 !important;
+      border-color: rgba(250, 204, 21, 0.4) !important;
+    }
+
+    /* Footer links hover: gold */
+    footer .footer-col li a:hover {
+      color: #facc15 !important;
+    }
+
+    footer .footer-bottom a:hover {
+      color: #facc15 !important;
+    }
+
+    /* Social icons hover */
+    footer .social-icon:hover {
+      background: #2563eb !important;
+    }
+
+    /* Emergency bar: blue */
+    .emergency-bar {
+      background: #1d4ed8 !important;
+    }
+
+    /* WhatsApp buttons stay gold */
     a[href*="wa.me"] {
-      background: var(--gold) !important;
-      color: var(--text) !important;
-      border-color: var(--gold) !important;
+      background: #facc15 !important;
+      color: #1e3a8a !important;
+      border-color: #facc15 !important;
     }
 
     a[href*="wa.me"]:hover {
-      background: #ffdf66 !important;
+      background: #fde047 !important;
+    }
+
+    /* Float book button */
+    .float-book {
+      background: #2563eb !important;
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.45) !important;
+    }
+
+    /* ===== MOBILE-FIRST IMPROVEMENTS ===== */
+
+    /* Base mobile: compact padding */
+    @media (max-width: 480px) {
+      .hero {
+        padding: 56px 16px 48px !important;
+      }
+
+      .hero h2 {
+        font-size: clamp(26px, 7vw, 36px) !important;
+      }
+
+      .hero p {
+        font-size: 15px !important;
+      }
+
+      .hero-ctas {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      .hero-card {
+        padding: 24px 20px !important;
+      }
+
+      .hero-stats {
+        gap: 8px !important;
+      }
+
+      .hero-stat {
+        padding: 10px !important;
+      }
+
+      .hero-stat .num {
+        font-size: 22px !important;
+      }
+
+      .section {
+        padding: 56px 16px !important;
+      }
+
+      .header-inner {
+        padding: 0 16px !important;
+      }
+
+      .logo-icon {
+        width: 80px !important;
+        height: 80px !important;
+      }
+
+      .trust-inner {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .trust-item {
+        padding: 20px 12px !important;
+      }
+
+      .trust-num {
+        font-size: 28px !important;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+      }
+
+      .service-card {
+        padding: 18px 14px !important;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      .doctor-card {
+        max-width: 100% !important;
+      }
+
+      .doctor-top {
+        padding: 36px 24px 28px !important;
+      }
+
+      .wellness-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .section-title {
+        font-size: clamp(22px, 6vw, 30px) !important;
+      }
+
+      .final-cta {
+        padding: 72px 16px !important;
+      }
+
+      .final-ctas {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      .btn-final {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+    }
+
+    /* Tablet improvements */
+    @media (min-width: 481px) and (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+
+      .hero-ctas {
+        flex-wrap: wrap !important;
+      }
+
+      .wellness-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
     }
   </style>
 </head>
