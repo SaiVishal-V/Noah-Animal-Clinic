@@ -1,5 +1,5 @@
 // services/email.js
-// Nodemailer email fallback - fires when WhatsApp fails OR as additional notification
+// Nodemailer email notifications for appointment events
 
 import nodemailer from "nodemailer";
 
@@ -20,19 +20,29 @@ function createTransporter() {
 async function sendEmail(to, subject, html) {
   // Skip if email config is missing
   if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
-    console.warn("[Email] Email env vars not configured, skipping.");
+    console.warn("[Email] EMAIL_USER or EMAIL_APP_PASSWORD not configured, skipping email.");
     return null;
   }
 
-  const transporter = createTransporter();
-  const info = await transporter.sendMail({
-    from: `"${CLINIC_NAME}" <${process.env.EMAIL_USER}>`,
-    to,
-    subject,
-    html,
-  });
-  console.log(`[Email] Sent: ${info.messageId}`);
-  return info;
+  if (!to) {
+    console.warn("[Email] No recipient address provided, skipping.");
+    return null;
+  }
+
+  try {
+    const transporter = createTransporter();
+    const info = await transporter.sendMail({
+      from: `"${CLINIC_NAME}" <${process.env.EMAIL_USER}>`,
+      to,
+      subject,
+      html,
+    });
+    console.log(`[Email] Sent to ${to}: ${info.messageId}`);
+    return info;
+  } catch (err) {
+    console.error(`[Email] Failed to send to ${to}:`, err.message);
+    throw err;
+  }
 }
 
 // ─── Shared HTML helpers ─────────────────────────────────────────────────────
@@ -140,7 +150,7 @@ export async function emailPatientConfirmed(appointment) {
         ⏰ Please arrive <strong>10 minutes early</strong>.
       </p>
       <p style="font-size:13px;color:#64748b;margin:0;">
-        Need to reschedule or have questions? Call or WhatsApp us at 📞 <strong>${CLINIC_PHONE}</strong>.
+        Need to reschedule or have questions? Call us at 📞 <strong>${CLINIC_PHONE}</strong>.
       </p>`)
   );
 }
@@ -164,7 +174,7 @@ export async function emailPatientCancelled(appointment) {
            </p>`
         : ""}
       <p style="font-size:13px;color:#374151;margin:0;">
-        We're sorry for the inconvenience. Please call or WhatsApp us at 📞 <strong>${CLINIC_PHONE}</strong> to find a convenient time.
+        We're sorry for the inconvenience. Please call us at 📞 <strong>${CLINIC_PHONE}</strong> to find a convenient time.
       </p>`)
   );
 }
@@ -192,7 +202,7 @@ export async function emailPatientRescheduled(appointment) {
            </p>`
         : ""}
       <p style="font-size:13px;color:#374151;margin:0;">
-        Please reply, call, or WhatsApp us at 📞 <strong>${CLINIC_PHONE}</strong> to confirm or request a different time.
+        Please reply or call us at 📞 <strong>${CLINIC_PHONE}</strong> to confirm or request a different time.
       </p>`)
   );
 }
