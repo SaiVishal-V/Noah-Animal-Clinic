@@ -60,7 +60,7 @@ function emailWrapper(bodyContent) {
         ${bodyContent}
       </div>
       <p style="text-align:center;font-size:11px;color:#94a3b8;margin-top:16px;">
-        ${CLINIC_NAME} &nbsp;|&nbsp; 📞 ${CLINIC_PHONE} &nbsp;|&nbsp; Kurnool, Andhra Pradesh
+        ${CLINIC_NAME} &nbsp;|&nbsp; 📞 ${CLINIC_PHONE} &nbsp;|&nbsp; Hyderabad, Telangana
       </p>
     </div>`;
 }
@@ -148,7 +148,7 @@ export async function emailPatientConfirmed(appointment) {
         ["Time",    `<strong>${appointment.preferred_time}</strong>`],
       ])}
       <p style="font-size:13px;color:#374151;margin:16px 0 8px;">
-        📍 <strong>Location:</strong> Noah Animal Clinic, Kurnool, Andhra Pradesh<br>
+        📍 <strong>Location:</strong> Noah Animal Clinic, Hyderabad, Telangana<br>
         ⏰ Please arrive <strong>10 minutes early</strong>.
       </p>
       <p style="font-size:13px;color:#64748b;margin:0;">
