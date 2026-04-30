@@ -50,10 +50,12 @@ export default async function handler(req, res) {
         notes: notes?.trim() || null,
       });
 
-      // 2. Email notification to clinic (non-blocking)
-      emailBookingReceived(appointment).catch((err) =>
-        console.error("[Email] booking notification failed:", err.message)
-      );
+      // 2. Email notification to clinic (await so Vercel doesn't kill the function)
+      try {
+        await emailBookingReceived(appointment);
+      } catch (err) {
+        console.error("[Email] booking notification failed:", err.message);
+      }
 
       return res.status(201).json({
         success: true,

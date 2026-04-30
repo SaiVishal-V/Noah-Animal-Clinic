@@ -69,48 +69,35 @@ export default async function handler(req, res) {
       // Merge for notification (updated may not include all fields)
       const fullRecord = { ...existing, ...updates };
 
-      // 3. Email clinic staff notification (non-blocking)
-      emailStatusUpdate(fullRecord, status).catch((err) =>
-        console.error("[Email] status update notification failed:", err.message)
-      );
+      // 3. Email clinic staff notification (await for Vercel)
+      try {
+        await emailStatusUpdate(fullRecord, status);
+      } catch (err) {
+        console.error("[Email] status update notification failed:", err.message);
+      }
 
-      // 5. Email patient confirmation (non-blocking)
+      // 4. Email patient + Calendar (await for Vercel)
       if (status === "confirmed") {
-        emailPatientConfirmed(fullRecord).catch((err) =>
-          console.error("[Email] patient confirmation failed:", err.message)
-        );
-        // 6. Add to Google Calendar and persist the event ID (non-blocking)
-        addCalendarEvent(fullRecord)
-          .then((eventId) => {
-            if (eventId) {
-              updateAppointment(id, { calendar_event_id: eventId }).catch((err) =>
-                console.error("[Calendar] failed to save event ID:", err.message)
-              );
-            }
-          })
-          .catch((err) =>
-            console.error("[Calendar] add event failed:", err.message)
-          );
+        try { await emailPatientConfirmed(fullRecord); }
+        catch (err) { console.error("[Email] patient confirmation failed:", err.message); }
+        try {
+          const eventId = await addCalendarEvent(fullRecord);
+          if (eventId) {
+            await updateAppointment(id, { calendar_event_id: eventId });
+          }
+        } catch (err) { console.error("[Calendar] add event failed:", err.message); }
       } else if (status === "cancelled") {
-        emailPatientCancelled(fullRecord).catch((err) =>
-          console.error("[Email] patient cancellation failed:", err.message)
-        );
+        try { await emailPatientCancelled(fullRecord); }
+        catch (err) { console.error("[Email] patient cancellation failed:", err.message); }
       } else if (status === "rescheduled") {
-        emailPatientRescheduled(fullRecord).catch((err) =>
-          console.error("[Email] patient reschedule failed:", err.message)
-        );
-        // Update existing calendar event (or create one if none exists) (non-blocking)
-        updateCalendarEvent(fullRecord)
-          .then((eventId) => {
-            if (eventId && eventId !== fullRecord.calendar_event_id) {
-              updateAppointment(id, { calendar_event_id: eventId }).catch((err) =>
-                console.error("[Calendar] failed to save event ID:", err.message)
-              );
-            }
-          })
-          .catch((err) =>
-            console.error("[Calendar] update event failed:", err.message)
-          );
+        try { await emailPatientRescheduled(fullRecord); }
+        catch (err) { console.error("[Email] patient reschedule failed:", err.message); }
+        try {
+          const eventId = await updateCalendarEvent(fullRecord);
+          if (eventId && eventId !== fullRecord.calendar_event_id) {
+            await updateAppointment(id, { calendar_event_id: eventId });
+          }
+        } catch (err) { console.error("[Calendar] update event failed:", err.message); }
       }
 
       return res.status(200).json({
