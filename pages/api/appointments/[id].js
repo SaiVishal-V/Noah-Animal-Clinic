@@ -9,7 +9,13 @@ import {
   notifyAppointmentCancelled,
   notifyAppointmentRescheduled,
 } from "@/services/whatsapp";
-import { emailStatusUpdate } from "@/services/email";
+import {
+  emailStatusUpdate,
+  emailPatientConfirmed,
+  emailPatientCancelled,
+  emailPatientRescheduled,
+} from "@/services/email";
+import { addCalendarEvent, updateCalendarEvent } from "@/services/calendar";
 import { verifyAdminToken, getTokenFromRequest } from "@/lib/auth";
 
 const VALID_STATUSES = ["confirmed", "cancelled", "rescheduled"];
@@ -79,10 +85,49 @@ export default async function handler(req, res) {
         console.error(`[WhatsApp] ${status} notification failed:`, err.message)
       );
 
-      // 4. Email staff notification (non-blocking)
+      // 4. Email clinic staff notification (non-blocking)
       emailStatusUpdate(fullRecord, status).catch((err) =>
         console.error("[Email] status update notification failed:", err.message)
       );
+
+      // 5. Email patient confirmation (non-blocking)
+      if (status === "confirmed") {
+        emailPatientConfirmed(fullRecord).catch((err) =>
+          console.error("[Email] patient confirmation failed:", err.message)
+        );
+        // 6. Add to Google Calendar and persist the event ID (non-blocking)
+        addCalendarEvent(fullRecord)
+          .then((eventId) => {
+            if (eventId) {
+              updateAppointment(id, { calendar_event_id: eventId }).catch((err) =>
+                console.error("[Calendar] failed to save event ID:", err.message)
+              );
+            }
+          })
+          .catch((err) =>
+            console.error("[Calendar] add event failed:", err.message)
+          );
+      } else if (status === "cancelled") {
+        emailPatientCancelled(fullRecord).catch((err) =>
+          console.error("[Email] patient cancellation failed:", err.message)
+        );
+      } else if (status === "rescheduled") {
+        emailPatientRescheduled(fullRecord).catch((err) =>
+          console.error("[Email] patient reschedule failed:", err.message)
+        );
+        // Update existing calendar event (or create one if none exists) (non-blocking)
+        updateCalendarEvent(fullRecord)
+          .then((eventId) => {
+            if (eventId && eventId !== fullRecord.calendar_event_id) {
+              updateAppointment(id, { calendar_event_id: eventId }).catch((err) =>
+                console.error("[Calendar] failed to save event ID:", err.message)
+              );
+            }
+          })
+          .catch((err) =>
+            console.error("[Calendar] update event failed:", err.message)
+          );
+      }
 
       return res.status(200).json({
         success: true,

@@ -33,6 +33,7 @@ export async function createAppointment(data) {
   const payload = {
     owner_name: data.owner_name,
     phone: data.phone,
+    owner_email: data.owner_email || null,
     pet_name: data.pet_name || null,
     pet_type: data.pet_type,
     service: data.service,
@@ -103,6 +104,7 @@ export async function updateAppointment(id, updates) {
   if (updates.reschedule_date) payload.reschedule_date = updates.reschedule_date;
   if (updates.reschedule_time) payload.reschedule_time = updates.reschedule_time;
   if (updates.admin_note) payload.admin_note = updates.admin_note;
+  if (updates.calendar_event_id) payload.calendar_event_id = updates.calendar_event_id;
 
   let res;
   try {

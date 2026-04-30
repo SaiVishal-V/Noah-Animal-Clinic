@@ -283,6 +283,11 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                       <td>
                         <div className="owner-name">{apt.owner_name}</div>
                         <div className="owner-phone">📞 {apt.phone}</div>
+                        {apt.owner_email && (
+                          <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
+                            ✉️ {apt.owner_email}
+                          </div>
+                        )}
                         {apt.notes && (
                           <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 3, maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={apt.notes}>
                             💬 {apt.notes}

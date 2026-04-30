@@ -2661,6 +2661,8 @@
             <div class="form-group"><label for="phone">Phone Number *</label><input id="phone" type="tel"
                 placeholder="Your contact number" required></div>
           </div>
+          <div class="form-group"><label for="owner_email">Email Address <span style="font-weight:400;color:#64748b;">(for appointment confirmation)</span></label><input id="owner_email" type="email"
+              placeholder="your@email.com"></div>
           <div class="form-row">
             <div class="form-group"><label for="pet_name">Pet Name</label><input id="pet_name" type="text"
                 placeholder="Your pet's name"></div>
@@ -2716,7 +2718,7 @@
         <div class="form-success" id="formSuccess" style="background:#fff;border-radius:24px;padding:48px 36px;">
           <div class="check">✅</div>
           <h4>Appointment Request Received!</h4>
-          <p>Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm your appointment.</p>
+          <p id="formSuccessMsg">Thank you. Our clinic team will contact you shortly via call or WhatsApp to confirm your appointment.</p>
           <div class="form-quick-links">
             <a href="tel:7672055007" class="fql-call">📞 Call Us Now</a>
             <a href="https://wa.me/917672055007" class="fql-wa" target="_blank">💬 WhatsApp</a>
@@ -3163,6 +3165,7 @@
         var f = function (id) { return (document.getElementById(id) || {}).value || ''; };
         var owner_name = f('owner_name').trim();
         var phone = f('phone').trim();
+        var owner_email = f('owner_email').trim();
         var pet_name = f('pet_name').trim();
         var pet_type = f('pet_type');
         var service = f('service');
@@ -3177,17 +3180,25 @@
         if (!/^\d{10}$/.test(phone.replace(/\D/g, ''))) {
           errDiv.textContent = 'Enter a valid 10-digit mobile number'; errDiv.style.display = 'block'; return;
         }
+        if (owner_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email)) {
+          errDiv.textContent = 'Enter a valid email address or leave it blank'; errDiv.style.display = 'block'; return;
+        }
         errDiv.style.display = 'none';
         btn.disabled = true; btn.textContent = 'Submitting\u2026'; loadDiv.style.display = 'block';
         try {
           var r = await fetch('/api/appointments', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ owner_name, phone, pet_name, pet_type, service, preferred_date, preferred_time, notes })
+            body: JSON.stringify({ owner_name, phone, owner_email: owner_email || null, pet_name, pet_type, service, preferred_date, preferred_time, notes })
           });
           var d = await r.json();
           if (r.ok && d.success) {
             document.getElementById('apptForm').style.display = 'none';
-            document.getElementById('formSuccess').style.display = 'block';
+            var successEl = document.getElementById('formSuccess');
+            var msgEl = document.getElementById('formSuccessMsg');
+            if (msgEl && owner_email) {
+              msgEl.textContent = 'Thank you! A confirmation email will be sent to ' + owner_email + ' once the doctor approves your appointment.';
+            }
+            successEl.style.display = 'block';
           } else {
             var msg = d.error || (d.errors ? Object.values(d.errors).join(', ') : 'Submission failed. Try again.');
             errDiv.textContent = msg; errDiv.style.display = 'block';
