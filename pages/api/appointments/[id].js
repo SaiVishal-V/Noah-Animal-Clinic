@@ -6,11 +6,6 @@ import {
   deleteAppointment,
 } from "@/services/supabase";
 import {
-  notifyAppointmentConfirmed,
-  notifyAppointmentCancelled,
-  notifyAppointmentRescheduled,
-} from "@/services/whatsapp";
-import {
   emailStatusUpdate,
   emailPatientConfirmed,
   emailPatientCancelled,
@@ -74,19 +69,7 @@ export default async function handler(req, res) {
       // Merge for notification (updated may not include all fields)
       const fullRecord = { ...existing, ...updates };
 
-      // 3. Fire appropriate WhatsApp notification (non-blocking)
-      const waNotify =
-        status === "confirmed"
-          ? notifyAppointmentConfirmed(fullRecord)
-          : status === "cancelled"
-          ? notifyAppointmentCancelled(fullRecord)
-          : notifyAppointmentRescheduled(fullRecord);
-
-      waNotify.catch((err) =>
-        console.error(`[WhatsApp] ${status} notification failed:`, err.message)
-      );
-
-      // 4. Email clinic staff notification (non-blocking)
+      // 3. Email clinic staff notification (non-blocking)
       emailStatusUpdate(fullRecord, status).catch((err) =>
         console.error("[Email] status update notification failed:", err.message)
       );
@@ -132,7 +115,7 @@ export default async function handler(req, res) {
 
       return res.status(200).json({
         success: true,
-        message: `Appointment ${status} successfully. WhatsApp notification sent.`,
+        message: `Appointment ${status} successfully. Email notification sent.`,
         data: updated,
       });
     } catch (err) {

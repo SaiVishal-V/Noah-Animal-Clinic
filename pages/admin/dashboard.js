@@ -241,7 +241,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
 
       <div className="container">
         <h1 className="page-title">Doctor Dashboard</h1>
-        <p className="page-sub">Manage all appointment requests and send WhatsApp notifications</p>
+        <p className="page-sub">Manage all appointment requests and send email notifications</p>
 
         {/* Stats Row */}
         <div className="stats-row">
@@ -294,16 +294,17 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                 <th>Pet</th>
                 <th>Service</th>
                 <th>Requested Slot</th>
+                <th>Requested At</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {loading ? (
-                <tr><td colSpan={6} className="loading-cell">⏳ Loading appointments...</td></tr>
+                <tr><td colSpan={7} className="loading-cell">⏳ Loading appointments...</td></tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={6}>
+                  <td colSpan={7}>
                     <div className="empty-state">
                       <div className="empty-icon">🐾</div>
                       <div>No {filter !== "all" ? filter : ""} appointments found</div>
@@ -345,6 +346,10 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                             🔄 {apt.reschedule_date} {apt.reschedule_time}
                           </div>
                         )}
+                      </td>
+                      <td>
+                        <div className="date-cell">{apt.created_at ? new Date(apt.created_at).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—"}</div>
+                        <div className="time-cell">{apt.created_at ? new Date(apt.created_at).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true }) : ""}</div>
                       </td>
                       <td>
                         <span
@@ -450,7 +455,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                 onClick={handleRescheduleSubmit}
                 disabled={actionLoading === rescheduleModal.id}
               >
-                {actionLoading === rescheduleModal.id ? "Sending…" : "Send WhatsApp & Save"}
+                {actionLoading === rescheduleModal.id ? "Sending…" : "Save & Notify"}
               </button>
             </div>
           </div>

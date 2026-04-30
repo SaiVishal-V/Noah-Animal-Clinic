@@ -1,9 +1,6 @@
 // pages/api/appointments/index.js
 
 import { createAppointment, getAppointments } from "@/services/supabase";
-import {
-  notifyBookingReceived,
-} from "@/services/whatsapp";
 import { emailBookingReceived } from "@/services/email";
 import { verifyAdminToken, getTokenFromRequest } from "@/lib/auth";
 
@@ -53,19 +50,14 @@ export default async function handler(req, res) {
         notes: notes?.trim() || null,
       });
 
-      // 2. Send WhatsApp notification (non-blocking – don't fail if WA fails)
-      notifyBookingReceived(appointment).catch((err) =>
-        console.error("[WhatsApp] booking notification failed:", err.message)
-      );
-
-      // 3. Email fallback to clinic (non-blocking)
+      // 2. Email notification to clinic (non-blocking)
       emailBookingReceived(appointment).catch((err) =>
         console.error("[Email] booking notification failed:", err.message)
       );
 
       return res.status(201).json({
         success: true,
-        message: "Appointment request received! We'll confirm via WhatsApp" + (appointment.owner_email ? " and email" : "") + " shortly.",
+        message: "Appointment request received! We'll confirm via email shortly.",
         data: appointment,
       });
     } catch (err) {
