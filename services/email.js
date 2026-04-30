@@ -1,31 +1,16 @@
 // services/email.js
-// Nodemailer email notifications for appointment events
-
-import nodemailer from "nodemailer";
+// Email notifications for appointment events (via Resend HTTP API)
 
 const CLINIC_NAME = "Noah Animal Clinic";
 const CLINIC_PHONE = "76720 55007";
-const CLINIC_EMAIL = process.env.CLINIC_EMAIL; // clinic's Gmail
+const CLINIC_EMAIL = process.env.CLINIC_EMAIL; // clinic's email for admin notifications
 
-function createTransporter() {
-  return nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_APP_PASSWORD, // Gmail App Password (not login password)
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
-  });
-}
-
+/**
+ * Send an email via Resend HTTP API (works on Vercel — no SMTP needed)
+ */
 async function sendEmail(to, subject, html) {
-  // Skip if email config is missing
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
-    console.warn("[Email] EMAIL_USER or EMAIL_APP_PASSWORD not configured, skipping email.");
+  if (!process.env.RESEND_API_KEY) {
+    console.warn("[Email] RESEND_API_KEY not configured, skipping email.");
     return null;
   }
 
@@ -35,15 +20,27 @@ async function sendEmail(to, subject, html) {
   }
 
   try {
-    const transporter = createTransporter();
-    const info = await transporter.sendMail({
-      from: `"${CLINIC_NAME}" <${process.env.EMAIL_USER}>`,
-      to,
-      subject,
-      html,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: `${CLINIC_NAME} <onboarding@resend.dev>`,
+        to,
+        subject,
+        html,
+      }),
     });
-    console.log(`[Email] Sent to ${to}: ${info.messageId}`);
-    return info;
+
+    const data = await res.json();
+    if (!res.ok) {
+      console.error("[Email] Resend API error:", data);
+      throw new Error(data.message || "Failed to send email");
+    }
+    console.log(`[Email] Sent to ${to}: ${data.id}`);
+    return data;
   } catch (err) {
     console.error(`[Email] Failed to send to ${to}:`, err.message);
     throw err;
