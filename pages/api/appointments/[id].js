@@ -3,6 +3,7 @@
 import {
   getAppointmentById,
   updateAppointment,
+  deleteAppointment,
 } from "@/services/supabase";
 import {
   notifyAppointmentConfirmed,
@@ -150,6 +151,21 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true, data: appointment });
     } catch (err) {
       return res.status(500).json({ success: false, error: "Failed to fetch" });
+    }
+  }
+
+  // ─── DELETE /api/appointments/:id ── Permanently delete ──────────────────
+  if (req.method === "DELETE") {
+    try {
+      const existing = await getAppointmentById(id);
+      if (!existing) {
+        return res.status(404).json({ success: false, error: "Appointment not found" });
+      }
+      await deleteAppointment(id);
+      return res.status(200).json({ success: true, message: "Appointment deleted successfully." });
+    } catch (err) {
+      console.error(`[DELETE /api/appointments/${id}]`, err);
+      return res.status(500).json({ success: false, error: "Failed to delete appointment" });
     }
   }
 

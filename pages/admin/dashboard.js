@@ -22,16 +22,20 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   const router = useRouter();
   const [appointments, setAppointments] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("newest");
   const [loading, setLoading] = useState(true);
-  const [actionLoading, setActionLoading] = useState(null); // id of appointment being actioned
+  const [actionLoading, setActionLoading] = useState(null);
   const [toast, setToast] = useState(null);
   const [adminEmail, setAdminEmail] = useState(initialEmail || "");
 
   // Reschedule modal state
-  const [rescheduleModal, setRescheduleModal] = useState(null); // appointment object
+  const [rescheduleModal, setRescheduleModal] = useState(null);
   const [rescheduleDate, setRescheduleDate] = useState("");
   const [rescheduleTime, setRescheduleTime] = useState("");
   const [adminNote, setAdminNote] = useState("");
+
+  // Delete confirm modal
+  const [deleteModal, setDeleteModal] = useState(null);
 
   // Confirm session on mount (lightweight re-validation; redirect if cookie gone)
   useEffect(() => {
@@ -101,21 +105,42 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
     });
   }
 
+  async function handleDelete(id) {
+    setActionLoading(id);
+    try {
+      const res = await fetch(`/api/appointments/${id}`, { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      showToast(data.message, "success");
+      fetchAppointments();
+    } catch (err) {
+      showToast(err.message || "Delete failed", "error");
+    } finally {
+      setActionLoading(null);
+      setDeleteModal(null);
+    }
+  }
+
   async function handleLogout() {
     await fetch("/api/admin/login", { method: "DELETE" });
     router.replace("/admin");
   }
 
-  const counts = {
-    all: appointments.length,
-    pending: appointments.filter((a) => a.status === "pending").length,
-    confirmed: appointments.filter((a) => a.status === "confirmed").length,
-    cancelled: appointments.filter((a) => a.status === "cancelled").length,
-    rescheduled: appointments.filter((a) => a.status === "rescheduled").length,
-  };
+  // --- Sort + filter logic ---
+  const today = new Date().toISOString().split("T")[0];
+  const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
-  const filtered =
-    filter === "all" ? appointments : appointments.filter((a) => a.status === filter);
+  let filtered = filter === "all" ? [...appointments] : appointments.filter((a) => a.status === filter);
+
+  if (sortOrder === "today") {
+    filtered = filtered.filter((a) => a.preferred_date === today);
+  } else if (sortOrder === "week") {
+    filtered = filtered.filter((a) => a.preferred_date >= oneWeekAgo);
+  } else if (sortOrder === "oldest") {
+    filtered = filtered.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  } else {
+    filtered = filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
 
   return (
     <>
@@ -165,10 +190,17 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
         .btn-reject:hover  { background: #fecaca; }
         .btn-reschedule { background: #dbeafe; color: #1d4ed8; }
         .btn-reschedule:hover { background: #bfdbfe; }
+        .btn-delete { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+        .btn-delete:hover { background: #fee2e2; }
         .btn-disabled { opacity: .45; cursor: not-allowed; }
         .empty-state { text-align: center; padding: 60px 20px; color: #64748b; }
         .empty-icon { font-size: 48px; margin-bottom: 12px; }
         .loading-cell { text-align: center; padding: 60px; color: #94a3b8; }
+        .sort-select { padding: 7px 14px; border-radius: 8px; border: 1.5px solid #e2e8f0; background: #fff; color: #475569; font-size: 13px; font-weight: 500; cursor: pointer; outline: none; transition: border .2s; }
+        .sort-select:focus { border-color: #0f766e; }
+        .filter-sort-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .btn-delete-confirm { padding: 9px 18px; background: #dc2626; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .btn-delete-confirm:hover { background: #b91c1c; }
 
         /* Reschedule Modal */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -227,8 +259,8 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
           ))}
         </div>
 
-        {/* Filters */}
-        <div className="filter-row">
+        {/* Filters + Sort */}
+        <div className="filter-sort-row">
           {["all", "pending", "confirmed", "cancelled", "rescheduled"].map((f) => (
             <button
               key={f}
@@ -238,13 +270,19 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
               {STATUS_LABELS[f] || "All"} {f === "all" ? `(${appointments.length})` : `(${appointments.filter(a=>a.status===f).length})`}
             </button>
           ))}
-          <button
-            className="filter-btn"
-            style={{ marginLeft: "auto" }}
-            onClick={fetchAppointments}
-          >
-            🔄 Refresh
-          </button>
+          <div style={{ marginLeft: "auto", display: "flex", gap: 8, alignItems: "center" }}>
+            <select
+              className="sort-select"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value="newest">🕐 Newest First</option>
+              <option value="oldest">🕐 Oldest First</option>
+              <option value="today">📅 Today Only</option>
+              <option value="week">📅 This Week</option>
+            </select>
+            <button className="filter-btn" onClick={fetchAppointments}>🔄 Refresh</button>
+          </div>
         </div>
 
         {/* Table */}
@@ -317,38 +355,47 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                         </span>
                       </td>
                       <td>
-                        {isTerminal ? (
-                          <span style={{ fontSize: 12, color: "#94a3b8" }}>No further action</span>
-                        ) : (
-                          <div className="actions">
-                            <button
-                              className={`action-btn btn-accept ${isLoading || apt.status === "confirmed" ? "btn-disabled" : ""}`}
-                              disabled={isLoading || apt.status === "confirmed"}
-                              onClick={() => handleAction(apt.id, "confirmed")}
-                            >
-                              {isLoading ? "…" : "✅ Accept"}
-                            </button>
-                            <button
-                              className={`action-btn btn-reject ${isLoading ? "btn-disabled" : ""}`}
-                              disabled={isLoading}
-                              onClick={() => handleAction(apt.id, "cancelled", { admin_note: "Doctor unavailable" })}
-                            >
-                              {isLoading ? "…" : "❌ Reject"}
-                            </button>
-                            <button
-                              className={`action-btn btn-reschedule ${isLoading ? "btn-disabled" : ""}`}
-                              disabled={isLoading}
-                              onClick={() => {
-                                setRescheduleModal(apt);
-                                setRescheduleDate(apt.preferred_date);
-                                setRescheduleTime(apt.preferred_time);
-                                setAdminNote("");
-                              }}
-                            >
-                              🔄 Reschedule
-                            </button>
-                          </div>
-                        )}
+                        <div className="actions">
+                          {isTerminal ? (
+                            <span style={{ fontSize: 12, color: "#94a3b8" }}>No further action</span>
+                          ) : (
+                            <>
+                              <button
+                                className={`action-btn btn-accept ${isLoading || apt.status === "confirmed" ? "btn-disabled" : ""}`}
+                                disabled={isLoading || apt.status === "confirmed"}
+                                onClick={() => handleAction(apt.id, "confirmed")}
+                              >
+                                {isLoading ? "…" : "✅ Accept"}
+                              </button>
+                              <button
+                                className={`action-btn btn-reject ${isLoading ? "btn-disabled" : ""}`}
+                                disabled={isLoading}
+                                onClick={() => handleAction(apt.id, "cancelled", { admin_note: "Doctor unavailable" })}
+                              >
+                                {isLoading ? "…" : "❌ Reject"}
+                              </button>
+                              <button
+                                className={`action-btn btn-reschedule ${isLoading ? "btn-disabled" : ""}`}
+                                disabled={isLoading}
+                                onClick={() => {
+                                  setRescheduleModal(apt);
+                                  setRescheduleDate(apt.preferred_date);
+                                  setRescheduleTime(apt.preferred_time);
+                                  setAdminNote("");
+                                }}
+                              >
+                                🔄 Reschedule
+                              </button>
+                            </>
+                          )}
+                          <button
+                            className={`action-btn btn-delete ${isLoading ? "btn-disabled" : ""}`}
+                            disabled={isLoading}
+                            onClick={() => setDeleteModal(apt)}
+                          >
+                            🗑️ Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );
@@ -404,6 +451,30 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                 disabled={actionLoading === rescheduleModal.id}
               >
                 {actionLoading === rescheduleModal.id ? "Sending…" : "Send WhatsApp & Save"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {deleteModal && (
+        <div className="modal-overlay" onClick={() => setDeleteModal(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <h3>🗑️ Delete Record</h3>
+            <p>
+              Are you sure you want to permanently delete the appointment for{" "}
+              <strong>{deleteModal.owner_name}</strong> ({deleteModal.pet_type})?<br />
+              <span style={{ color: "#dc2626", fontWeight: 600 }}>This action cannot be undone.</span>
+            </p>
+            <div className="modal-actions">
+              <button className="btn-cancel-modal" onClick={() => setDeleteModal(null)}>Cancel</button>
+              <button
+                className="btn-delete-confirm"
+                onClick={() => handleDelete(deleteModal.id)}
+                disabled={actionLoading === deleteModal.id}
+              >
+                {actionLoading === deleteModal.id ? "Deleting…" : "Yes, Delete"}
               </button>
             </div>
           </div>

@@ -141,3 +141,27 @@ export async function getAppointmentById(id) {
   if (!res.ok) throw new Error(result.message || result.error || JSON.stringify(result));
   return result[0] || null;
 }
+
+/**
+ * Permanently delete an appointment by id
+ * @param {string} id - appointment uuid
+ */
+export async function deleteAppointment(id) {
+  assertSupabaseConfig();
+
+  let res;
+  try {
+    res = await fetch(`${SUPABASE_URL}/rest/v1/appointments?id=eq.${id}`, {
+      method: "DELETE",
+      headers: getHeaders(),
+    });
+  } catch (err) {
+    throw new Error(`Unable to reach Supabase at ${SUPABASE_URL}: ${err.message}`);
+  }
+
+  if (!res.ok) {
+    const result = await res.json().catch(() => ({}));
+    throw new Error(result.message || result.error || JSON.stringify(result));
+  }
+  return true;
+}
