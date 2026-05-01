@@ -62,7 +62,7 @@ function emailWrapper(bodyContent) {
         ${bodyContent}
       </div>
       <p style="text-align:center;font-size:11px;color:#94a3b8;margin-top:16px;">
-        ${CLINIC_NAME} &nbsp;|&nbsp; 📞 <a href="tel:7672055007" style="color:#94a3b8;text-decoration:underline;">${CLINIC_PHONE}</a> &nbsp;|&nbsp; <a href="https://www.google.com/maps/search/?api=1&query=Noah+Animal+Clinic,+Hyderabad" target="_blank" style="color:#94a3b8;text-decoration:underline;">Hyderabad, Telangana</a>
+        ${CLINIC_NAME} &nbsp;|&nbsp; 📞 <a href="tel:7672055007" style="color:#94a3b8;text-decoration:underline;">${CLINIC_PHONE}</a> &nbsp;|&nbsp; 📍 <a href="https://www.google.com/maps/search/?api=1&query=Noah+Animal+Clinic,+Hyderabad" target="_blank" style="color:#94a3b8;text-decoration:underline;">Hyderabad, Telangana</a>
       </p>
     </div>`;
 }
