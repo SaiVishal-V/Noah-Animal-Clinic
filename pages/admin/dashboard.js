@@ -226,7 +226,18 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
         @media (max-width: 768px) {
           .stats-row { grid-template-columns: repeat(2, 1fr); }
           .topbar-right .admin-email { display: none; }
-          table { display: block; overflow-x: auto; }
+          
+          /* Card-based responsive table */
+          table, thead, tbody, th, td, tr { display: block; }
+          thead tr { display: none; }
+          .table-wrap { background: transparent; border: none; box-shadow: none; }
+          tr { margin-bottom: 16px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); background: #fff; }
+          td { border-bottom: 1px solid #f1f5f9; padding: 10px 0 10px 110px; position: relative; min-height: 44px; font-size: 14px; }
+          td::before { content: attr(data-label); position: absolute; left: 0; top: 10px; width: 100px; font-weight: 600; font-size: 11px; text-transform: uppercase; color: #64748b; }
+          td:last-child { border-bottom: none; padding-bottom: 0; }
+          .actions { justify-content: flex-start; margin-top: 4px; }
+          .filter-sort-row { flex-direction: column; align-items: flex-start; }
+          .filter-sort-row > div { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 10px; }
         }
       `}</style>
 
@@ -320,7 +331,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                   const isTerminal = apt.status === "cancelled";
                   return (
                     <tr key={apt.id}>
-                      <td>
+                      <td data-label="Patient">
                         <div className="owner-name">{apt.owner_name}</div>
                         {apt.notes && (
                           <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 3, maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={apt.notes}>
@@ -328,7 +339,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                           </div>
                         )}
                       </td>
-                      <td>
+                      <td data-label="Contact">
                         <div className="owner-phone">📞 {apt.phone}</div>
                         {apt.owner_email ? (
                           <div style={{ fontSize: 12, color: "#64748b", marginTop: 3 }}>✉️ {apt.owner_email}</div>
@@ -336,12 +347,12 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                           <div style={{ fontSize: 11, color: "#cbd5e1", marginTop: 3 }}>No email</div>
                         )}
                       </td>
-                      <td>
+                      <td data-label="Pet">
                         <div className="pet-info">{apt.pet_name || "—"}</div>
                         <div className="pet-type">{apt.pet_type}</div>
                       </td>
-                      <td style={{ maxWidth: 160 }}>{apt.service}</td>
-                      <td>
+                      <td data-label="Service" style={{ maxWidth: 160 }}>{apt.service}</td>
+                      <td data-label="Requested Slot">
                         <div className="date-cell">{apt.preferred_date}</div>
                         <div className="time-cell">{apt.preferred_time}</div>
                         {apt.status === "rescheduled" && apt.reschedule_date && (
@@ -350,11 +361,11 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                           </div>
                         )}
                       </td>
-                      <td>
+                      <td data-label="Requested At">
                         <div className="date-cell">{apt.created_at ? new Date(apt.created_at).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—"}</div>
                         <div className="time-cell">{apt.created_at ? new Date(apt.created_at).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true }) : ""}</div>
                       </td>
-                      <td>
+                      <td data-label="Status">
                         <span
                           className="badge"
                           style={{ background: sc.bg, color: sc.text, borderColor: sc.border }}
@@ -362,7 +373,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                           {STATUS_LABELS[apt.status]}
                         </span>
                       </td>
-                      <td>
+                      <td data-label="Actions">
                         <div className="actions">
                           {isTerminal ? (
                             <span style={{ fontSize: 12, color: "#94a3b8" }}>No further action</span>
