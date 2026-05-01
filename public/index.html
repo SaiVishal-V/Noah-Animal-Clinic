@@ -3174,6 +3174,13 @@
       item.classList.toggle('open');
     }
 
+    // Set minimum date for appointment to today
+    const dateInput = document.getElementById('preferred_date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+
     // handled by event listener below
 
     // Animate on scroll
