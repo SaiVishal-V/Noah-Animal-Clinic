@@ -301,7 +301,8 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
           <table>
             <thead>
               <tr>
-                <th>Patient</th>
+                <th>S.No</th>
+                <th>Patient ID</th>
                 <th>Contact</th>
                 <th>Pet</th>
                 <th>Service</th>
@@ -313,10 +314,10 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
             </thead>
             <tbody>
               {loading ? (
-                <tr><td colSpan={8} className="loading-cell">⏳ Loading appointments...</td></tr>
+                <tr><td colSpan={9} className="loading-cell">⏳ Loading appointments...</td></tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={8}>
+                  <td colSpan={9}>
                     <div className="empty-state">
                       <div className="empty-icon">🐾</div>
                       <div>No {filter !== "all" ? filter : ""} appointments found</div>
@@ -331,7 +332,8 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                   const isTerminal = apt.status === "cancelled";
                   return (
                     <tr key={apt.id}>
-                      <td data-label="Patient">
+                      <td data-label="S.No" style={{ fontWeight: 600, color: "#64748b" }}>{index + 1}</td>
+                      <td data-label="Patient ID">
                         <div className="owner-name">
                           <span style={{ color: "#334155", marginRight: "6px", fontWeight: 600 }}>#{apt.id.substring(0, 6).toUpperCase()}</span>
                           {apt.owner_name}
