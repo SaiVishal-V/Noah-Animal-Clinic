@@ -3179,6 +3179,14 @@
     if (dateInput) {
       const today = new Date().toISOString().split('T')[0];
       dateInput.min = today;
+      
+      // Auto-prompt and clear if manually typed invalid date
+      dateInput.addEventListener('change', function(e) {
+        if (e.target.value && e.target.value < today) {
+          alert("Please select a valid date from today onwards.");
+          e.target.value = '';
+        }
+      });
     }
 
     // handled by event listener below
