@@ -144,13 +144,14 @@ export async function emailPatientConfirmed(appointment) {
         Hi <strong>${appointment.owner_name}</strong>, great news! Dr. Ranjith Kumar has confirmed your appointment at ${CLINIC_NAME}.
       </p>
       ${detailsTable([
+        ["Apt ID",  `<strong>#${appointment.id.substring(0, 6).toUpperCase()}</strong>`],
         ["Pet",     petLabel],
         ["Service", appointment.service],
         ["Date",    `<strong>${appointment.preferred_date}</strong>`],
         ["Time",    `<strong>${appointment.preferred_time}</strong>`],
       ])}
       <p style="font-size:13px;color:#374151;margin:16px 0 8px;">
-        📍 <strong>Location:</strong> Noah Animal Clinic, Hyderabad, Telangana<br>
+        📍 <strong>Location:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Noah+Animal+Clinic,+Hyderabad" target="_blank" style="color:#2563eb;text-decoration:underline;">Noah Animal Clinic, Hyderabad, Telangana</a><br>
         ⏰ Please arrive <strong>10 minutes early</strong>.
       </p>
       <p style="font-size:13px;color:#64748b;margin:0;">
