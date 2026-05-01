@@ -324,7 +324,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                   </td>
                 </tr>
               ) : (
-                filtered.map((apt) => {
+                filtered.map((apt, index) => {
                   const sc = STATUS_COLORS[apt.status] || STATUS_COLORS.pending;
                   const isLoading = actionLoading === apt.id;
                   // Only truly cancelled appointments are terminal; confirmed can still be cancelled or rescheduled
@@ -332,7 +332,10 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                   return (
                     <tr key={apt.id}>
                       <td data-label="Patient">
-                        <div className="owner-name">{apt.owner_name}</div>
+                        <div className="owner-name">
+                          <span style={{ color: "#94a3b8", marginRight: "6px", fontWeight: 500 }}>#{index + 1}</span>
+                          {apt.owner_name}
+                        </div>
                         {apt.notes && (
                           <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 3, maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={apt.notes}>
                             💬 {apt.notes}
