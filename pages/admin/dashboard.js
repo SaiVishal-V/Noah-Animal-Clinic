@@ -333,7 +333,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
                     <tr key={apt.id}>
                       <td data-label="Patient">
                         <div className="owner-name">
-                          <span style={{ color: "#94a3b8", marginRight: "6px", fontWeight: 500 }}>#{index + 1}</span>
+                          <span style={{ color: "#334155", marginRight: "6px", fontWeight: 600 }}>#{index + 1}</span>
                           {apt.owner_name}
                         </div>
                         {apt.notes && (
