@@ -48,8 +48,8 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
       .catch(() => router.replace("/admin"));
   }, [router, adminEmail]);
 
-  const fetchAppointments = useCallback(async () => {
-    setLoading(true);
+  const fetchAppointments = useCallback(async ({ silent = false } = {}) => {
+    if (!silent) setLoading(true);
     try {
       const url =
         filter === "all"
@@ -62,11 +62,18 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
     } catch {
       showToast("Failed to load appointments", "error");
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, [filter, router]);
 
   useEffect(() => { fetchAppointments(); }, [fetchAppointments]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchAppointments({ silent: true });
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [fetchAppointments]);
 
   function showToast(message, type = "success") {
     setToast({ message, type });
