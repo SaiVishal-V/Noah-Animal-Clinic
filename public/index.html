@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --teal: #2563eb;
@@ -19,6 +20,7 @@
       --teal-dark: #1d4ed8;
       --teal-pale: rgba(37, 99, 235, 0.08);
       --navy: #1e3a8a;
+      --logo-green: #1f7a3b;
       --gold: #f59e0b;
       --gold-light: #fbbf24;
       --cream: #f8faff;
@@ -115,13 +117,31 @@
     }
 
     .logo-text h1 {
-      font-family: 'Cabin Sketch', cursive !important;
-      font-size: 26px;
+      font-family: 'Cinzel', serif !important;
+      font-size: 24px;
+      line-height: 1.05;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .logo-text h1 span {
+      display: block;
+    }
+
+    .logo-text h1 .title-top {
       color: var(--navy);
-      line-height: 1.15;
-      font-weight: 700 !important;
-      -webkit-text-stroke: 0.6px var(--navy);
-      white-space: nowrap;
+      font-size: 26px;
+      letter-spacing: 1.8px;
+    }
+
+    .logo-text h1 .title-bottom {
+      color: var(--logo-green);
+      font-size: 20px;
+      margin-top: 2px;
+      letter-spacing: 2.4px;
     }
 
     .mobile-break {
@@ -2215,8 +2235,7 @@
       <a href="#home" class="logo">
         <div class="logo-icon"><img src="logo2.jpeg" alt="Noah Animal Clinic logo"></div>
         <div class="logo-text">
-          <h1>Noah<br class="mobile-break"> Animal Clinic</h1>
-
+          <h1><span class="title-top">NOAH</span><span class="title-bottom">ANIMAL CLINIC</span></h1>
         </div>
       </a>
       <nav>
