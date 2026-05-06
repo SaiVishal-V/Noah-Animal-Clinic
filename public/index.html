@@ -11,7 +11,7 @@
     content="pet clinic hyderabad, veterinary clinic hyderabad, dog doctor hyderabad, cat doctor hyderabad, emergency vet hyderabad, pet vaccination hyderabad, Noah Animal Clinic, Dr Ranjith Kumar vet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --teal: #2563eb;
@@ -115,17 +115,33 @@
     }
 
     .logo-text h1 {
-      font-family: 'Cabin Sketch', cursive !important;
-      font-size: 26px;
-      color: var(--navy);
-      line-height: 1.15;
+      font-family: 'Cinzel', serif !important;
+      font-size: 22px;
+      line-height: 1.2;
       font-weight: 700 !important;
-      -webkit-text-stroke: 0.6px var(--navy);
       white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-noah {
+      color: #1a237e;
+      display: inline;
+    }
+
+    .logo-clinic {
+      color: #1b5e20;
+      display: inline;
     }
 
     .mobile-break {
       display: none;
+    }
+
+    @media (max-width: 900px) {
+      .logo-noah,
+      .logo-clinic {
+        display: block;
+      }
     }
 
     .logo-text p {
@@ -1837,10 +1853,6 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .mobile-break {
-        display: block;
-      }
-
       nav {
         display: none;
       }
@@ -2215,7 +2227,7 @@
       <a href="#home" class="logo">
         <div class="logo-icon"><img src="logo2.jpeg" alt="Noah Animal Clinic logo"></div>
         <div class="logo-text">
-          <h1>Noah<br class="mobile-break"> Animal Clinic</h1>
+          <h1><span class="logo-noah">NOAH</span><span class="logo-clinic"> ANIMAL CLINIC</span></h1>
 
         </div>
       </a>
