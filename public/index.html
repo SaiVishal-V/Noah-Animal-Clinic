@@ -2767,7 +2767,8 @@
             <div class="form-group"><label for="owner_name">Pet Owner Name *</label><input id="owner_name" type="text"
                 placeholder="Your full name" required></div>
             <div class="form-group"><label for="phone">Phone Number *</label><input id="phone" type="tel"
-                placeholder="9876543210" value="+91 " required><small id="phoneValidationMsg"
+                placeholder="9876543210" value="+91 " aria-describedby="phoneValidationMsg" required><small
+                id="phoneValidationMsg" aria-live="polite"
                 style="display:none;color:#dc2626;font-size:12px;margin-top:4px;">Invalid number</small></div>
           </div>
           <div class="form-group"><label for="owner_email">Email Address *</label><input id="owner_email" type="email"
@@ -3290,12 +3291,16 @@
       var phoneValidationMsg = document.getElementById('phoneValidationMsg');
       var normalizeIndianPhone = function (value) {
         var digits = (value || '').replace(/\D/g, '');
-        if (digits.length === 12 && digits.indexOf('91') === 0) digits = digits.slice(2);
+        if (digits.length === 12 && digits.startsWith('91')) digits = digits.slice(2);
         if (!/^[6-9]\d{9}$/.test(digits)) return null;
         return '+91 ' + digits;
       };
       var validatePhoneField = function () {
         if (!phoneInput || !phoneValidationMsg) return true;
+        if (!phoneInput.value.trim()) {
+          phoneValidationMsg.style.display = 'none';
+          return false;
+        }
         var normalizedPhone = normalizeIndianPhone(phoneInput.value);
         if (!normalizedPhone) {
           phoneValidationMsg.style.display = 'block';
@@ -3304,13 +3309,15 @@
         phoneValidationMsg.style.display = 'none';
         return true;
       };
-      if (phoneInput && !phoneInput.value.trim()) phoneInput.value = '+91 ';
       if (phoneInput) {
-        phoneInput.addEventListener('focus', function () {
+        var ensurePhonePrefix = function () {
           if (!phoneInput.value.trim()) phoneInput.value = '+91 ';
+        };
+        ensurePhonePrefix();
+        phoneInput.addEventListener('focus', function () {
+          ensurePhonePrefix();
         });
         phoneInput.addEventListener('input', function () {
-          if (phoneInput.value.trim() === '+91') phoneInput.value = '+91 ';
           validatePhoneField();
         });
       }
