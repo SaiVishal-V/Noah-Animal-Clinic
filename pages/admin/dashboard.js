@@ -1,5 +1,5 @@
 // pages/admin/dashboard.js
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { getTokenFromRequest, verifyAdminToken } from "@/lib/auth";
@@ -27,6 +27,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   const [actionLoading, setActionLoading] = useState(null);
   const [toast, setToast] = useState(null);
   const [adminEmail, setAdminEmail] = useState(initialEmail || "");
+  const isFetchingRef = useRef(false);
 
   // Reschedule modal state
   const [rescheduleModal, setRescheduleModal] = useState(null);
@@ -49,6 +50,8 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   }, [router, adminEmail]);
 
   const fetchAppointments = useCallback(async ({ silent = false } = {}) => {
+    if (isFetchingRef.current) return;
+    isFetchingRef.current = true;
     if (!silent) setLoading(true);
     try {
       const url =
@@ -62,6 +65,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
     } catch {
       showToast("Failed to load appointments", "error");
     } finally {
+      isFetchingRef.current = false;
       if (!silent) setLoading(false);
     }
   }, [filter, router]);
