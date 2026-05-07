@@ -2767,8 +2767,8 @@
             <div class="form-group"><label for="owner_name">Pet Owner Name *</label><input id="owner_name" type="text"
                 placeholder="Your full name" required></div>
             <div class="form-group"><label for="phone">Phone Number *</label><input id="phone" type="tel"
-                placeholder="+91 9876543210" value="+91 " aria-describedby="phoneValidationMsg" required><small
-                id="phoneValidationMsg" aria-live="polite"
+                placeholder="+91 9876543210" value="+91 " aria-describedby="phoneValidationMsg" aria-invalid="false"
+                required><small id="phoneValidationMsg" aria-live="polite"
                 style="display:none;color:#dc2626;font-size:12px;margin-top:4px;">Invalid number</small></div>
           </div>
           <div class="form-group"><label for="owner_email">Email Address *</label><input id="owner_email" type="email"
@@ -3292,7 +3292,7 @@
       var phoneValidationMsg = document.getElementById('phoneValidationMsg');
       var normalizeIndianPhone = function (value) {
         var digits = (value || '').replace(/\D/g, '');
-        if (digits.length === 12 && digits.startsWith('91')) digits = digits.slice(2);
+        if (digits.startsWith('91')) digits = digits.slice(2);
         if (!/^[6-9]\d{9}$/.test(digits)) return null;
         return indianPhonePrefix + digits;
       };
@@ -3300,24 +3300,21 @@
         if (!phoneInput || !phoneValidationMsg) return true;
         if (!phoneInput.value.trim()) {
           phoneValidationMsg.style.display = 'none';
+          phoneInput.setAttribute('aria-invalid', 'false');
           return true;
         }
         var normalizedPhone = normalizeIndianPhone(phoneInput.value);
         if (!normalizedPhone) {
           phoneValidationMsg.style.display = 'block';
+          phoneInput.setAttribute('aria-invalid', 'true');
           return false;
         }
         phoneValidationMsg.style.display = 'none';
+        phoneInput.setAttribute('aria-invalid', 'false');
         return true;
       };
       if (phoneInput) {
-        var ensurePhonePrefix = function () {
-          if (!phoneInput.value.trim()) phoneInput.value = indianPhonePrefix;
-        };
-        ensurePhonePrefix();
-        phoneInput.addEventListener('focus', function () {
-          ensurePhonePrefix();
-        });
+        if (!phoneInput.value.trim()) phoneInput.value = indianPhonePrefix;
         phoneInput.addEventListener('input', function () {
           validatePhoneField();
         });
@@ -3343,6 +3340,7 @@
           return;
         }
         phone = normalizeIndianPhone(phone);
+        if (phoneInput) phoneInput.value = phone;
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email)) {
           errDiv.textContent = 'Enter a valid email address'; errDiv.style.display = 'block'; return;
         }
