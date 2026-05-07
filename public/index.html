@@ -3292,7 +3292,7 @@
       var phoneValidationMsg = document.getElementById('phoneValidationMsg');
       var normalizeIndianPhone = function (value) {
         var digits = (value || '').replace(/\D/g, '');
-        if (digits.startsWith('91')) digits = digits.slice(2);
+        if (digits.slice(0, 2) === '91') digits = digits.slice(2);
         if (!/^[6-9]\d{9}$/.test(digits)) return null;
         return indianPhonePrefix + digits;
       };
@@ -3318,6 +3318,9 @@
         phoneInput.addEventListener('input', function () {
           validatePhoneField();
         });
+        phoneInput.addEventListener('blur', function () {
+          if (!phoneInput.value.trim()) phoneInput.value = indianPhonePrefix;
+        });
       }
       btn.addEventListener('click', async function () {
         var f = function (id) { return (document.getElementById(id) || {}).value || ''; };
@@ -3340,6 +3343,7 @@
           return;
         }
         phone = normalizeIndianPhone(phone);
+        if (!phone) return;
         if (phoneInput) phoneInput.value = phone;
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email)) {
           errDiv.textContent = 'Enter a valid email address'; errDiv.style.display = 'block'; return;
