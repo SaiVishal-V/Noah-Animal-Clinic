@@ -18,6 +18,8 @@ const STATUS_LABELS = {
   rescheduled: "🔄 Rescheduled",
 };
 
+const POLLING_INTERVAL_MS = 15000;
+
 export default function AdminDashboard({ adminEmail: initialEmail }) {
   const router = useRouter();
   const [appointments, setAppointments] = useState([]);
@@ -50,7 +52,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   }, [router, adminEmail]);
 
   const fetchAppointments = useCallback(async ({ silent = false } = {}) => {
-    if (isFetchingRef.current) return;
+    if (isFetchingRef.current) return false;
     isFetchingRef.current = true;
     if (!silent) setLoading(true);
     try {
@@ -59,11 +61,13 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
           ? "/api/appointments"
           : `/api/appointments?status=${filter}`;
       const res = await fetch(url);
-      if (res.status === 401) { router.replace("/admin"); return; }
+      if (res.status === 401) { router.replace("/admin"); return false; }
       const data = await res.json();
       setAppointments(data.data || []);
+      return true;
     } catch {
       showToast("Failed to load appointments", "error");
+      return false;
     } finally {
       isFetchingRef.current = false;
       if (!silent) setLoading(false);
@@ -75,7 +79,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchAppointments({ silent: true });
-    }, 15000);
+    }, POLLING_INTERVAL_MS);
     return () => clearInterval(interval);
   }, [fetchAppointments]);
 
