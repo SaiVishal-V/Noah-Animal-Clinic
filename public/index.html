@@ -1874,9 +1874,12 @@
       }
 
       .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        position: static;
+        transform: none;
+      }
+
+      .logo-text h1 {
+        text-align: left;
       }
 
       .hero-inner {
@@ -1922,7 +1925,7 @@
 
     @media (max-width: 600px) {
       .header-inner {
-        height: 64px;
+        height: 76px;
         padding: 0 16px;
       }
 
@@ -1931,25 +1934,28 @@
       }
 
       .logo-icon {
-        width: 56px;
-        height: 56px;
+        width: 80px;
+        height: 80px;
         border-radius: 10px;
       }
 
       .logo-text h1 {
         line-height: 1.1;
-        letter-spacing: 1px;
-        text-align: center;
+        letter-spacing: 1.2px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .logo-text h1 .title-top {
-        font-size: 17px;
-        letter-spacing: 1.3px;
+        font-size: 22px;
+        letter-spacing: 1.4px;
+        align-self: center;
       }
 
       .logo-text h1 .title-bottom {
-        font-size: 13px;
-        letter-spacing: 1.6px;
+        font-size: 18px;
+        letter-spacing: 1.8px;
       }
 
       .emergency-bar {

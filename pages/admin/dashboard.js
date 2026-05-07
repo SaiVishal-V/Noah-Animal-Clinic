@@ -1,5 +1,5 @@
 // pages/admin/dashboard.js
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { getTokenFromRequest, verifyAdminToken } from "@/lib/auth";
@@ -18,6 +18,8 @@ const STATUS_LABELS = {
   rescheduled: "🔄 Rescheduled",
 };
 
+const POLLING_INTERVAL_MS = 15000;
+
 export default function AdminDashboard({ adminEmail: initialEmail }) {
   const router = useRouter();
   const [appointments, setAppointments] = useState([]);
@@ -27,6 +29,7 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
   const [actionLoading, setActionLoading] = useState(null);
   const [toast, setToast] = useState(null);
   const [adminEmail, setAdminEmail] = useState(initialEmail || "");
+  const isFetchingRef = useRef(false);
 
   // Reschedule modal state
   const [rescheduleModal, setRescheduleModal] = useState(null);
@@ -48,25 +51,37 @@ export default function AdminDashboard({ adminEmail: initialEmail }) {
       .catch(() => router.replace("/admin"));
   }, [router, adminEmail]);
 
-  const fetchAppointments = useCallback(async () => {
-    setLoading(true);
+  const fetchAppointments = useCallback(async ({ silent = false } = {}) => {
+    if (isFetchingRef.current) return false;
+    isFetchingRef.current = true;
+    if (!silent) setLoading(true);
     try {
       const url =
         filter === "all"
           ? "/api/appointments"
           : `/api/appointments?status=${filter}`;
       const res = await fetch(url);
-      if (res.status === 401) { router.replace("/admin"); return; }
+      if (res.status === 401) { router.replace("/admin"); return false; }
       const data = await res.json();
       setAppointments(data.data || []);
+      return true;
     } catch {
       showToast("Failed to load appointments", "error");
+      return false;
     } finally {
-      setLoading(false);
+      isFetchingRef.current = false;
+      if (!silent) setLoading(false);
     }
   }, [filter, router]);
 
   useEffect(() => { fetchAppointments(); }, [fetchAppointments]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchAppointments({ silent: true });
+    }, POLLING_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [fetchAppointments]);
 
   function showToast(message, type = "success") {
     setToast({ message, type });
