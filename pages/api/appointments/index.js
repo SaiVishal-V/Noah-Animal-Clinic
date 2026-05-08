@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     if (!phone?.trim()) errors.phone = "Phone is required";
     else {
       normalizedPhone = normalizeIndianPhone(phone);
-      if (!normalizedPhone) errors.phone = "Enter a valid Indian mobile number (10 digits or with +91/91 prefix)";
+      if (!normalizedPhone) errors.phone = "Enter a valid Indian mobile number (10 digits, optionally with +91 or 91 prefix)";
     }
     if (owner_email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email.trim()))
       errors.owner_email = "Enter a valid email address";
