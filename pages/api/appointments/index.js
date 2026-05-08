@@ -4,6 +4,20 @@ import { createAppointment, getAppointments } from "@/services/supabase";
 import { emailBookingReceived } from "@/services/email";
 import { verifyAdminToken, getTokenFromRequest } from "@/lib/auth";
 
+function normalizeIndianPhone(value) {
+  const digits = (value || "").trim().replace(/\D/g, "");
+  let localDigits = "";
+  if (digits.length === 10) {
+    localDigits = digits;
+  } else if (digits.length === 12 && digits.startsWith("91")) {
+    localDigits = digits.slice(2);
+  } else {
+    return null;
+  }
+  if (!/^[6-9]\d{9}$/.test(localDigits)) return null;
+  return `+91 ${localDigits}`;
+}
+
 export default async function handler(req, res) {
   // ─── POST /api/appointments ── Create new booking ──────────────────────────
   if (req.method === "POST") {
@@ -21,10 +35,13 @@ export default async function handler(req, res) {
 
     // ── Validation ───────────────────────────────────────────────────────────
     const errors = {};
+    let normalizedPhone = null;
     if (!owner_name?.trim()) errors.owner_name = "Name is required";
     if (!phone?.trim()) errors.phone = "Phone is required";
-    if (!/^\d{10}$/.test(phone?.replace(/\D/g, "")))
-      errors.phone = "Enter a valid 10-digit phone number";
+    else {
+      normalizedPhone = normalizeIndianPhone(phone);
+      if (!normalizedPhone) errors.phone = "Enter a valid Indian mobile number (10 digits starting with 6-9, optionally with +91 or 91 prefix)";
+    }
     if (owner_email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email.trim()))
       errors.owner_email = "Enter a valid email address";
     if (!pet_type) errors.pet_type = "Pet type is required";
@@ -40,7 +57,7 @@ export default async function handler(req, res) {
       // 1. Save to database
       const appointment = await createAppointment({
         owner_name: owner_name.trim(),
-        phone: phone.trim(),
+        phone: normalizedPhone,
         owner_email: owner_email?.trim() || null,
         pet_name: pet_name?.trim() || null,
         pet_type,
