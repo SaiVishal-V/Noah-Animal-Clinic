@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     if (!owner_name?.trim()) errors.owner_name = "Name is required";
     if (!phone?.trim()) errors.phone = "Phone is required";
     else if (!normalizedPhone)
-      errors.phone = "Enter a valid 10-digit phone number";
+      errors.phone = "Enter a valid Indian mobile number (10 digits or with +91/91 prefix)";
     if (owner_email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email.trim()))
       errors.owner_email = "Enter a valid email address";
     if (!pet_type) errors.pet_type = "Pet type is required";
