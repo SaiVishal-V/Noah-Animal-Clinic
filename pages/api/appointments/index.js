@@ -6,7 +6,14 @@ import { verifyAdminToken, getTokenFromRequest } from "@/lib/auth";
 
 function normalizeIndianPhone(value) {
   const digits = (value || "").replace(/\D/g, "");
-  const localDigits = digits.startsWith("91") && digits.length === 12 ? digits.slice(2) : digits;
+  let localDigits = "";
+  if (digits.length === 10) {
+    localDigits = digits;
+  } else if (digits.length === 12 && digits.startsWith("91")) {
+    localDigits = digits.slice(2);
+  } else {
+    return null;
+  }
   if (!/^[6-9]\d{9}$/.test(localDigits)) return null;
   return `+91 ${localDigits}`;
 }
@@ -28,11 +35,13 @@ export default async function handler(req, res) {
 
     // ── Validation ───────────────────────────────────────────────────────────
     const errors = {};
-    const normalizedPhone = normalizeIndianPhone(phone);
+    let normalizedPhone = null;
     if (!owner_name?.trim()) errors.owner_name = "Name is required";
     if (!phone?.trim()) errors.phone = "Phone is required";
-    else if (!normalizedPhone)
-      errors.phone = "Enter a valid Indian mobile number (10 digits or with +91/91 prefix)";
+    else {
+      normalizedPhone = normalizeIndianPhone(phone);
+      if (!normalizedPhone) errors.phone = "Enter a valid Indian mobile number (10 digits or with +91/91 prefix)";
+    }
     if (owner_email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner_email.trim()))
       errors.owner_email = "Enter a valid email address";
     if (!pet_type) errors.pet_type = "Pet type is required";
